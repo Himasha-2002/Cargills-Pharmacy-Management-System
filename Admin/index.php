@@ -6,6 +6,6 @@
     <title>pharmacy management system</title>
 </head>
 <body>
-    
+    <h2>Pharmacy</h2>
 </body>
 </html>

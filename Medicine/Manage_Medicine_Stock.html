@@ -139,15 +139,48 @@
             margin-top:15px;
         }
 
-        .header a{
-            position: absolute;
-            top: 40px;
-            right: 50px;
-            font-size: 40px;
-            color: #040404;
-            pointer-events: none;
+        /*settings dropdown*/
+       .settings-dropdown {
+        position: relative;
+        display: inline-block;
         }
 
+        .settings-icon {
+        right: 50px;
+        font-size: 30px;
+        color: #040404;
+        cursor: pointer;
+        text-decoration: none;
+        }
+
+        .settings-menu {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 40px;
+        background-color: #ad5062;
+        border: 1px solid #800000;
+        border-radius: 5px;
+        width: 150px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        }
+
+        .settings-menu a {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s;
+            gap: 10px; 
+        }
+
+        .settings-menu a:hover {
+        background-color: #4e0312;
+        }
 
         .header .settings {
             font-size: 24px;
@@ -284,54 +317,44 @@
             <div class="dropdown">
                 <a href="#"><i class="fa-solid fa-file-invoice"></i> Invoice<span class="toggle"><</span></a><br>
                 <div class="dropdown-content">
-                    <a href="#">New Invoice</a>
-                    <a href="#">Manage Invoice</a>
+                    <a href="..\Cargils\New Invoice.html">New Invoice</a>
+                    <a href="..\dashboard\Manage Invoice.html">Manage Invoice</a>
                 </div>
             </div>
             <div class="dropdown">
                 <a href="#"><i class="fa-solid fa-users"></i> Customer<span class="toggle"><</span></a><br>
                 <div class="dropdown-content">
-                    <a href="#">Add Customer</a>
-                    <a href="#">Manage Customer</a>
+                    <a href="..\New\Add Customer.html">Add Customer</a>
+                    <a href="..\Naduni\Manage Customer.html">Manage Customer</a>
                 </div>
             </div>
             <div class="dropdown">
                 <a href="#"><i class="fa-solid fa-capsules"></i> Medicine<span class="toggle"><</span></a><br>
                 <div class="dropdown-content">
-                    <a href="#">Add Medicine</a>
-                    <a href="#">Manage Medicine</a>
-                    <a href="#">Manage Medicine Stock</a>
+                    <a href="..\Medicine\Add_Medicine.html">Add Medicine</a>
+                    <a href="..\Medicine\Manage_medicine_Stock.html">Manage Medicine</a>
+                    <a href="..\Medicine\Manage_medicine.html">Manage Medicine Stock</a>
                 </div>
             </div>
             <div class="dropdown">
                 <a href="#"><i class="fas fa-truck"></i> Supplier<span class="toggle"><</span></a><br>
                 <div class="dropdown-content">
-                    <a href="#">Add Supplier</a>
-                    <a href="#">Manage Supplier</a>
+                    <a href="..\Cargils\Add Supplier.html">Add Supplier</a>
+                    <a href="..\Cargils\Manage Supplier.html">Manage Supplier</a>
                 </div>
             </div>
             <div class="dropdown">
                 <a href="#"><i class="fa-solid fa-cart-shopping"></i> Purchase<span class="toggle"><</span></a><br>
                 <div class="dropdown-content">
-                    <a href="#">Add Purchase</a>
-                    <a href="#">Manage Purchase</a>
+                    <a href="..\New\Add Purchase.html">Add Purchase</a>
+                    <a href="..\New\Manage Purchase.html">Manage Purchase</a>
                 </div>
             </div>
             <div class="dropdown">
                 <a href="#"><i class="fas fa-chart-bar"></i> Report<span class="toggle"><</span></a><br>
                 <div class="dropdown-content">
-                    <a href="#">Sales Report</a>
-                    <a href="#">Purchase Report</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <a href="#"><i class="fa-solid fa-magnifying-glass"></i> Search<span class="toggle"><</span></a>
-                <div class="dropdown-content">
-                    <a href="#">Invoice</a>
-                    <a href="#">Customer</a>
-                    <a href="#">Medicine</a>
-                    <a href="#">Supplier</a>
-                    <a href="#">Purchase</a>
+                    <a href="..\dashboard\Sales report.html">Sales Report</a>
+                    <a href="..\New\Purchase Report.html">Purchase Report</a>
                 </div>
             </div>
         </div>
@@ -343,8 +366,15 @@
                 <h1><i class="fa-solid fa-capsules"></i>Manage Medicine Stock</h1>
                 <p>Manage Exisiting Medicine Stock</p>
             </div>
-        
-            <a href="#"><i class="fas fa-cog settings-icon"></i></a>
+            <div class="settings-dropdown">
+                <a href="#"><i class="fas fa-cog settings-icon"></i></a>
+                <div class="settings-menu">
+                    <a href="..\Naduni\Profile.html"><i class="fas fa-user"></i>My Profile</a>
+                    <a href="..\Cargils\Password.html"><i class="fas fa-key"></i>Change Password</a>
+                    <a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                </div>
+            </div>
+           
         </div>
         <script>
             // JavaScript to handle dropdown functionality
@@ -359,6 +389,21 @@
                     content.style.display = isVisible ? 'none' : 'flex';
                     toggle.textContent = isVisible ? '<' : 'v'; // Toggle symbol
                 });
+            });
+            // JavaScript to handle settings dropdown functionality
+            const settingsIcon = document.querySelector('.settings-icon');
+            const settingsMenu = document.querySelector('.settings-menu');
+
+            settingsIcon.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isVisible = settingsMenu.style.display === 'block';
+            settingsMenu.style.display = isVisible ? 'none' : 'block';
+            });
+
+            document.addEventListener('click', (e) => {
+            if (!e.target.closest('.settings-dropdown')) {
+            settingsMenu.style.display = 'none';
+             }
             });
         </script>
     

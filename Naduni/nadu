@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargills Pharmacy</title>
+
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="assest/style.css">
+
+    <!-- Add Bootstrap CSS from CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJX3Jb9U0lRlz6l3L0EgyhP5B2dTlW5fy3g6b5VzXkx20w3mH7SzUrF3LTxF" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="text-center">
+            <h1 class="welcome mb-4">WELCOME TO</h1>
+            <div class="pharmacy-box p-5 rounded-5 shadow-lg">
+           

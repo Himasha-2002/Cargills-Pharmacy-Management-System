@@ -152,12 +152,18 @@
   gap: 40px;
   margin: 10px;
 }
+.overview2 {
+  display: grid;
+  margin: 10px;
+  width: 70%;
+  border-color: #800029;
+}
 
 .card {
-  background-color: #a05b5b;
+  background-color: #c2aaaa;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(213, 110, 110, 0.1);
+  box-shadow: 0 2px 5px rgba(106, 11, 11, 0.1);
   text-align: center;
 }
 
@@ -181,6 +187,12 @@
 .action-btn:hover {
   background-color: #d5c2c2;
 }
+.styled-hr {
+            border: none; 
+            height: 5px; 
+            background-color: #800000;
+            
+        }
         
         .settings-dropdown {
         position: relative;
@@ -317,21 +329,22 @@
           </section>
           <div class="overview2">
             <div class="card">
-                <h3>Today's Report</h3>
-                <p>Total Sales: Rs.0</p>
-                <p>Total Purchase: Rs.0</p>
+                <h3>Today's Report</h3></br>
+                <p>Total Sales: Rs.0</p></br>
+                <p>Total Purchase: Rs.0</p></br>
               </div>
           </div>
         </div>
         </br></br></br>
+        <hr class="styled-hr"></br></br>
           <section class="actions">
-            <button class="action-btn">Create New Invoice <a href="#"><i class="fa-solid fa-file-invoice"></i></button>
-            <button class="action-btn">Add New Customer</button>
-            <button class="action-btn">Add New Medicine</button>
-            <button class="action-btn">Add New Supplier</button>
-            <button class="action-btn">Add New Purchase</button>
-            <button class="action-btn">Sales Report</button>
-            <button class="action-btn">Purchase Report</button>
+            <button class="action-btn"><i class="fa-solid fa-file-invoice"></i>Create New Invoice </button>
+            <button class="action-btn"><i class="fa-solid fa-users"></i>Add New Customer</button>
+            <button class="action-btn"><i class="fa-solid fa-capsules"></i>Add New Medicine</button>
+            <button class="action-btn"><i class="fas fa-truck"></i>Add New Supplier</button>
+            <button class="action-btn"><i class="fa-solid fa-cart-shopping"></i>Add New Purchase</button>
+            <button class="action-btn"><i class="fas fa-chart-bar"></i>Sales Report</button>
+            <button class="action-btn"><i class="fas fa-chart-bar"></i>Purchase Report</button>
         </section>
         </main>
       </div>

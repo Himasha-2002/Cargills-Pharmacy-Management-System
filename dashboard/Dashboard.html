@@ -87,7 +87,7 @@
             padding: 10px 20px;
             text-decoration: none;
             color: white;
-            font-size: 9px;
+            font-size: 14px;
         }
 
         .dropdown-content a:hover {
@@ -97,7 +97,7 @@
        
         .dropdown .toggle {
             margin-left: auto;
-            font-size: 18px;
+            font-size: 25px;
             cursor: pointer;
         }
 
@@ -144,6 +144,15 @@
   margin: 10px;
 }
 
+
+
+.overview3 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin: 10px;
+}
+
 .card {
   background-color: #a05b5b;
   padding: 20px;
@@ -153,17 +162,18 @@
 }
 
 .actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 2fr);
   gap: 10px;
 }
 
 .action-btn {
-  background-color: #6e1e1e;
+  background-color: #969090;
   color: #fff;
-  padding: 30px 30px;
+  padding:50px;
   border: none;
-  border-radius: 40px;
+  border: 2px solid rgb(53, 4, 4);
+  border-radius: 10px;
   cursor: pointer;
   flex: 1 1 calc(10% - 3px);
   text-align: center;
@@ -295,6 +305,7 @@
             </div>
           </header>
         </div>
+        <div class="overview3">
         <section class="overview">
             <div class="card">Total Customer</div>
             <div class="card">Total Supplier</div>
@@ -302,12 +313,16 @@
             <div class="card">Out Of Stock</div>
             <div class="card">Expired</div>
             <div class="card">Total Invoice</div>
-            <div class="card">
-              <h3>Today's Report</h3>
-              <p>Total Sales: Rs.0</p>
-              <p>Total Purchase: Rs.0</p>
-            </div>
+            
           </section>
+          <div class="overview2">
+            <div class="card">
+                <h3>Today's Report</h3>
+                <p>Total Sales: Rs.0</p>
+                <p>Total Purchase: Rs.0</p>
+              </div>
+          </div>
+        </div>
         </br></br></br>
           <section class="actions">
             <button class="action-btn">Create New Invoice</button>
@@ -316,7 +331,8 @@
             <button class="action-btn">Add New Supplier</button>
             <button class="action-btn">Add New Purchase</button>
             <button class="action-btn">Sales Report</button>
-          </section>
+            <button class="action-btn">Purchase Report</button>
+        </section>
         </main>
       </div>
     

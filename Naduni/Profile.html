@@ -107,7 +107,7 @@
             flex: 1;
             background-color: #d5d4d4;
             padding: 20px;
-            border-bottom: 5px solid #800000;
+        
         }
         /*header*/
         .header {
@@ -142,16 +142,9 @@
             font-style: bold;
             margin-top:15px;
         }
-        .header a{
-            position: absolute;
-            top: 40px;
-            right: 50px;
-            font-size: 40px;
-            color: #040404;
-            pointer-events: none;
-        }
-    /*settings dropdown*/
-    .settings-dropdown {
+
+        /*settings icon*/
+        .settings-dropdown {
         position: relative;
         display: inline-block;
         }
@@ -198,6 +191,7 @@
             background-color: #d3d3d3;
             padding: 20px;
             border-radius: 5px;
+            border-bottom: 5px solid #800000;
             
         }
 
@@ -306,7 +300,8 @@
             <div>
                 <h1><i class="fas fa-user"></i>Profile</h1>
                 <p>Manage Admin Details</p>
-            </div>             
+            </div>   
+            <!--Setting icon-->          
             <div class="settings-dropdown">
                 <a href="#"><i class="fas fa-cog settings-icon"></i></a>
                 <div class="settings-menu">

@@ -1,0 +1,115 @@
+/* styles.css */
+body {
+    font-family: Arial,  Inria Serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    font-family:Inria Serif ;
+  }
+  
+  .report-section{
+    background-color: #d3b2b2;
+    padding: 20px;
+    border-radius: 8px;
+    width: 48%;
+    font-family:Inria Serif ;
+
+
+  }
+
+  .print-section {
+    background-color: #eee5e5;
+    padding: 20px;
+    border-radius: 8px;
+    width: 48%;
+    font-family:Inria Serif ;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family:Inria Serif ;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family:Inria Serif ;
+  }
+  
+  table th, table td {
+    border: 1px solid #000;
+    text-align: left;
+    padding: 8px;
+    font-family:Inria Serif ;
+  }
+  
+  table th {
+    background-color: #e0d4d4;
+    font-family:Inria Serif ;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    font-family:Inria Serif ;
+  }
+  
+  label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-family:Inria Serif ;
+  }
+  
+  input[type="text"] {
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    font-family:Inria Serif ;
+  }
+  
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    font-family:Inria Serif ;
+  }
+  
+  .checkbox-group input {
+    margin-right: 8px;
+    font-family:Inria Serif ;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    font-family:Inria Serif ;
+  }
+  
+  .save-btn, .cancel-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family:Inria Serif ;
+  }
+  
+  .save-btn {
+    background-color: #4CAF50;
+    color: white;
+    font-family:Inria Serif ;
+  }
+  
+  .cancel-btn {
+    background-color: #f44336;
+    color: white;
+    font-family:Inria Serif ;
+  }
+  

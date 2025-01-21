@@ -139,22 +139,49 @@
             margin-top:15px;
         }
 
-        .header a{
-            position: absolute;
-            top: 40px;
-            right: 50px;
-            font-size: 40px;
-            color: #040404;
-            pointer-events: none;
+       /*settings icon*/
+       .settings-dropdown {
+        position: relative;
+        display: inline-block;
         }
 
-        .header .settings {
-            font-size: 24px;
-            color: #800000;
-            cursor: pointer;
+        .settings-icon {
+        right: 50px;
+        font-size: 30px;
+        color: #040404;
+        cursor: pointer;
+        text-decoration: none;
         }
 
+        .settings-menu {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 35px;
+        background-color: #ad5062;
+        border: 1px solid #800000;
+        border-radius: 5px;
+        border-width: 2px;
+        width: 150px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        }
 
+        .settings-menu a {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s;
+            gap: 10px; 
+        }
+
+        .settings-menu a:hover {
+        background-color: #4e0312;
+        }
 
         .form-container {
             margin-top: 30px;
@@ -279,24 +306,16 @@
                 <h1><i class="fa-solid fa-capsules"></i>Add Medicine</h1>
                 <p>Add New Medicine</p>
             </div>
-        
-            <a href="#"><i class="fas fa-cog settings-icon"></i></a>
+            <!--Setting icon-->    
+            <div class="settings-dropdown">
+                <a href="#"><i class="fas fa-cog settings-icon"></i></a>
+                <div class="settings-menu">
+                    <a href="#"><i class="fas fa-user"></i>My Profile</a>
+                    <a href="#"><i class="fas fa-key"></i>Change Password</a>
+                    <a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                </div>
+            </div>
         </div>
-        <script>
-            // JavaScript to handle dropdown functionality
-            const dropdowns = document.querySelectorAll('.dropdown');
-    
-            dropdowns.forEach(dropdown => {
-                const toggle = dropdown.querySelector('.toggle');
-                const content = dropdown.querySelector('.dropdown-content');
-    
-                toggle.addEventListener('click', () => {
-                    const isVisible = content.style.display === 'flex';
-                    content.style.display = isVisible ? 'none' : 'flex';
-                    toggle.textContent = isVisible ? '<' : 'v'; // Toggle symbol
-                });
-            });
-        </script>
 
 
         <div class="form-container">
@@ -318,5 +337,37 @@
                 <button type="submit">ADD</button>
             </form>
         </div>
+        <script>
+            // JavaScript to handle dropdown functionality
+            const dropdowns = document.querySelectorAll('.dropdown');
+    
+            dropdowns.forEach(dropdown => {
+                const toggle = dropdown.querySelector('.toggle');
+                const content = dropdown.querySelector('.dropdown-content');
+    
+                toggle.addEventListener('click', () => {
+                    const isVisible = content.style.display === 'flex';
+                    content.style.display = isVisible ? 'none' : 'flex';
+                    toggle.textContent = isVisible ? '<' : 'v'; // Toggle symbol
+                });
+            });
+
+            // JavaScript to handle settings dropdown functionality
+        
+            const settingsIcon = document.querySelector('.settings-icon');
+            const settingsMenu = document.querySelector('.settings-menu');
+
+            settingsIcon.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isVisible = settingsMenu.style.display === 'block';
+            settingsMenu.style.display = isVisible ? 'none' : 'block';
+            });
+
+            document.addEventListener('click', (e) => {
+            if (!e.target.closest('.settings-dropdown')) {
+            settingsMenu.style.display = 'none';
+             }
+            });
+        </script>
     </body>
     </html>

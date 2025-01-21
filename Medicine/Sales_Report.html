@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales Report</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+}
+
+.sales-report {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sales-report h1 {
+  color: #a30000;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.report-table th, .report-table td {
+  border: 1px solid #000;
+  text-align: center;
+  padding: 8px;
+}
+
+.report-table th {
+  background-color: #f1f1f1;
+}
+
+.report-table tfoot {
+  background-color: #e7ffe7;
+}
+
+.total-label {
+  text-align: right;
+  font-weight: bold;
+  color: #006400;
+}
+
+.total-value {
+  font-weight: bold;
+  color: #006400;
+}
+
+.print-settings {
+  width: 300px;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.print-settings h2 {
+  margin-bottom: 20px;
+}
+
+.settings-group {
+  margin-bottom: 15px;
+}
+
+.settings-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.settings-group select,
+.settings-group input[type="checkbox"] {
+  width: 100%;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-family:Inria Serif ;
+  }
+  
+  .checkbox-group input {
+    margin-right: 20px;
+    font-family:Inria Serif ;
+  }
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.save-button, .cancel-button {
+  padding: 8px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.save-button {
+  background-color: #8b0000;
+  color: #fff;
+}
+
+.cancel-button {
+  background-color: #ccc;
+  color: #000;
+}
+
+    </style>
+  <div class="container">
+    <div class="sales-report">
+      <h1>Sales Report</h1>
+      <table class="report-table">
+        <thead>
+          <tr>
+            <th>SL</th>
+            <th>Sales Date</th>
+            <th>Invoice Number</th>
+            <th>Customer Name</th>
+            <th>Total Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4" class="total-label">Total Sales =</td>
+            <td class="total-value"></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div class="print-settings">
+      <h2>Print</h2>
+      <div class="settings-group">
+        <label>Destination</label>
+        <select>
+          <option>Save as PDF</option>
+        </select>
+      </div>
+      <div class="settings-group">
+        <label>Pages</label>
+        <select>
+          <option>All</option>
+        </select>
+      </div>
+      <div class="settings-group">
+        <label>Pages per sheet</label>
+        <select>
+          <option>1</option>
+        </select>
+      </div>
+      <div class="settings-group">
+        <label>Margins</label>
+        <select>
+          <option>Default</option>
+        </select>
+      </div>
+      <div class="settings-group">
+        <label>
+            <label>Options</label>
+            <div class="checkbox-group">
+              <input type="checkbox" id="headers-footers" name="headers-footers">
+              <label for="headers-footers">Headers and Footers</label>
+            </div>
+            
+            <div class="checkbox-group">
+              <input type="checkbox" id="background-graphics" name="background-graphics">
+              <label for="background-graphics">Background Graphics</label>
+            </div>
+            
+        </label>
+      </div>
+      <div class="buttons">
+        <button class="save-button">Save</button>
+        <button class="cancel-button">Cancel</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

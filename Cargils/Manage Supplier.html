@@ -248,7 +248,33 @@
         .table tr:hover {
             background-color: #f1f1f1;
         }
-        
+                   /* Responsive Design */
+                   @media (max-width: 768px) {
+            .main-content{
+                flex-direction: column;
+                padding: 10px;
+                position: static;
+            }
+
+            .header-search {
+                margin: 10px 0;
+                width: 100%;
+            }
+
+            .content-wrapper {
+                flex-direction: column;
+                margin-top: 0;
+            }
+            
+            .sidebar {
+                width: 100%;
+                min-height: auto;
+            }
+            
+            .content {
+                padding: 10px;
+            }
+            
 
 
     </style>
@@ -437,4 +463,4 @@
 </body>
 </html>
 
-        
+    

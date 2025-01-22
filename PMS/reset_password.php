@@ -146,7 +146,7 @@ h2 {
         <input type="password" name="confirm_password" placeholder="Confirm Password" required>
     </div><br><br><br>
     <button type="submit" class="btn reset-btn">Reset Password</button><br><br>
-    <a href="log.php" class="login-link">Login Here</a>
+    <a href="login.php" class="login-link">Login Here</a>
 </form>
 
         </div>

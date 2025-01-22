@@ -6,7 +6,7 @@
     <title>Manage Customer</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-        /* General styles */
+
         * {
             margin: 0;
             padding: 0;
@@ -16,7 +16,7 @@
 
         body {
             display: flex;
-            height: 115vh;
+            height: 100vh;
             background-color: #f0f0f0;
         }
 
@@ -101,13 +101,14 @@
             cursor: pointer;
         }
 
-      
+      /*main content*/
         .main-content {
             flex: 1;
             background-color: #d5d4d4;
             padding: 20px;
+            
         }
-
+        /*header*/
         .header {
             border-bottom: 5px solid #800000;
             margin-bottom: 50px;
@@ -134,6 +135,7 @@
         .header p {
             color: #b51616;
             margin: 0;
+            padding-left: 60px;
             font-size: 20px;
             font-family: 'Times New Roman', Times, serif;
             font-style: bold;
@@ -141,13 +143,7 @@
         }
 
 
-        .header .settings {
-            font-size: 24px;
-            color: #800000;
-            cursor: pointer;
-        }
-
-        /*settings icon*/
+        /*settings dropdown*/
        .settings-dropdown {
         position: relative;
         display: inline-block;
@@ -165,7 +161,7 @@
         display: none;
         position: absolute;
         right: 0;
-        top: 40px;
+        top: 35px;
         background-color: #ad5062;
         border: 1px solid #800000;
         border-radius: 5px;
@@ -191,35 +187,47 @@
         background-color: #4e0312;
         }
 
-
         .search-section {
+            display: flex;
+            align-items: center;
             background-color: #f0f0f0;
-            padding: 20px;
+            padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
             margin-bottom: 20px;
         }
 
         .search-section label {
+            font-size: 18px;
+            margin-left: 10px;
             margin-right: 10px;
+            font-style: bold;
+            font-family: Iskoola Pota;
+         }
+
+        .search-container {
+            position: relative;
+            width: 50%;
         }
 
-        .search-section input {
-            padding: 8px;
-            margin-right: 10px;
-            border: 1px solid #ddd;
+        .search-container input {
+            width: 100%;
+            padding: 10px 40px 10px 15px;
+            font-size: 14px;
+            border: 1px solid #ccc;
             border-radius: 5px;
+            outline: none;
         }
 
-        .search-section .refresh {
-            background-color: #00a000;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            cursor: pointer;
+        .search-container .icon {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #aba7a7;
+            pointer-events: none;
         }
-
         .table {
             width: 100%;
             border-collapse: collapse;
@@ -232,8 +240,8 @@
         }
 
         .table th {
-            background-color: white;
-            color: black;
+            background-color: #635757;
+            color: white;
         }
 
         .table tr:nth-child(even) {
@@ -247,6 +255,7 @@
     </style>
 </head>
 <body>
+    <!--sidebar-->
     <div class="sidebar">
         <div class="profile">
             <br><img src="Admin.jpg" alt="Admin">
@@ -257,50 +266,51 @@
             <div class="dropdown">
                 <a href="#"><i class="fa-solid fa-file-invoice"></i> Invoice<span class="toggle"><</span></a>
                 <div class="dropdown-content">
-                    <a href="..\Cargils\New Invoice.html">New Invoice</a>
-                    <a href="..\dashboard\Manage Invoice.html">Manage Invoice</a>
+                    <a href="#">New Invoice</a>
+                    <a href="#">Manage Invoice</a>
                 </div>
             </div>
             <div class="dropdown">
                 <a href="#"><i class="fa-solid fa-users"></i> Customer<span class="toggle"><</span></a>
                 <div class="dropdown-content">
-                    <a href="..\New\Add Customer.html">Add Customer</a>
-                    <a href="..\Naduni\Manage Customer.html">Manage Customer</a>
+                    <a href="#">Add Customer</a>
+                    <a href="#">Manage Customer</a>
                 </div>
             </div>
             <div class="dropdown">
                 <a href="#"><i class="fa-solid fa-capsules"></i> Medicine<span class="toggle"><</span></a>
                 <div class="dropdown-content">
-                    <a href="..\Medicine\Add_Medicine.html">Add Medicine</a>
-                    <a href="..\Medicine\Manage_medicine_Stock.html">Manage Medicine</a>
-                    <a href="..\Medicine\Manage_medicine.html">Manage Medicine Stock</a>
+                    <a href="#">Add Medicine</a>
+                    <a href="#">Manage Medicine</a>
+                    <a href="#">Manage Medicine Stock</a>
                 </div>
             </div>
             <div class="dropdown">
                 <a href="#"><i class="fas fa-truck"></i> Supplier<span class="toggle"><</span></a>
                 <div class="dropdown-content">
-                    <a href="..\Cargils\Add Supplier.html">Add Supplier</a>
-                    <a href="..\Cargils\Manage Supplier.html">Manage Supplier</a>
+                    <a href="#">Add Supplier</a>
+                    <a href="#">Manage Supplier</a>
                 </div>
             </div>
             <div class="dropdown">
                 <a href="#"><i class="fa-solid fa-cart-shopping"></i> Purchase<span class="toggle"><</span></a>
                 <div class="dropdown-content">
-                    <a href="..\New\Add Purchase.html">Add Purchase</a>
-                    <a href="..\New\Manage Purchase.html">Manage Purchase</a>
+                    <a href="#">Add Purchase</a>
+                    <a href="#">Manage Purchase</a>
                 </div>
             </div>
             <div class="dropdown">
                 <a href="#"><i class="fas fa-chart-bar"></i> Report<span class="toggle"><</span></a>
                 <div class="dropdown-content">
-                    <a href="..\dashboard\Sales report.html">Sales Report</a>
-                    <a href="..\New\Purchase Report.html">Purchase Report</a>
+                    <a href="#">Sales Report</a>
+                    <a href="#">Purchase Report</a>
                 </div>
             </div>
-            
+      
         </div>
     </div>
     <div class="main-content">
+        <!--header-->
         <div class="header">           
             <div>
                 <h1><i class="fa-solid fa-users"></i>Manage Customer</h1>
@@ -312,19 +322,21 @@
             <div class="settings-dropdown">
                 <a href="#"><i class="fas fa-cog settings-icon"></i></a>
                 <div class="settings-menu">
-                    <a href="..\Naduni\Profile.html"><i class="fas fa-user"></i>My Profile</a>
-                    <a href="..\Cargils\Password.html"><i class="fas fa-key"></i>Change Password</a>
+                    <a href="#"><i class="fas fa-user"></i>My Profile</a>
+                    <a href="#"><i class="fas fa-key"></i>Change Password</a>
                     <a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
                 </div>
             </div>
             
         </div>
 
-<div class="search-section">
-    <label for="voucher"><b>Search:</b></label>
-    <input type="text" id="customer" placeholder="">
-</div>
-
+        <div class="search-section">
+            <label for="Search"><span>Search:</span></label>
+            <div class="search-container">
+                <input type="text" placeholder="Search Supplier">
+                <i class="fa fa-search icon"></i>
+            </div>
+        </div><br>
 
 <table class="table">
     <thead>
@@ -339,148 +351,94 @@
         </tr>
 
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>.....</td>
+          <td>.....</td>
+          <td>.....</td>
+          <td>.....</td>
+          <td>.....</td>
+          <td>.....</td>
+          <td>.....</td>
       </tr>
 
       <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>.....</td>
+          <td>.....</td>
+          <td>.....</td>
+          <td>.....</td>
+          <td>.....</td>
+          <td>.....</td>
+          <td>.....</td>
       </tr>
 
       <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>.....</td>
+          <td>.....</td>
+          <td>.....</td>
+          <td>.....</td>
+          <td>.....</td>
+          <td>.....</td>
+          <td>.....</td>
       </tr>
 
       <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>.....</td>
+          <td>.....</td>
+          <td>.....</td>
+          <td>.....</td>
+          <td>.....</td>
+          <td>.....</td>
+          <td>.....</td>
       </tr>
 
       <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>.....</td>
+          <td>.....</td>
+          <td>.....</td>
+          <td>.....</td>
+          <td>.....</td>
+          <td>.....</td>
+          <td>.....</td>
       </tr>
 
       <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+        <td>.....</td>
+        <td>.....</td>
+        <td>.....</td>
+        <td>.....</td>
+        <td>.....</td>
+        <td>.....</td>
+        <td>.....</td>
       </tr>
 
       <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+        <td>.....</td>
+        <td>.....</td>
+        <td>.....</td>
+        <td>.....</td>
+        <td>.....</td>
+        <td>.....</td>
+        <td>.....</td>
       </tr>
 
       <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+        <td>.....</td>
+        <td>.....</td>
+        <td>.....</td>
+        <td>.....</td>
+        <td>.....</td>
+        <td>.....</td>
+        <td>.....</td>
       </tr>
 
       <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+        <td>.....</td>
+        <td>.....</td>
+        <td>.....</td>
+        <td>.....</td>
+        <td>.....</td>
+        <td>.....</td>
+        <td>.....</td>
       </tr>
-
-      <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-
-      <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-
-      <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-
-      <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-
-      <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-
-      
-
-     
 
       </thead>
       <tbody>

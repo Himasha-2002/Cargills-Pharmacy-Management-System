@@ -102,7 +102,7 @@
     /*main contenr*/ 
         .main-content {
             flex: 1;
-            background-color: #d5d4d4;
+            background-color: #d4d4d5;
             padding: 20px;
         }
     /*header*/
@@ -225,6 +225,33 @@
         .form-container button:hover {
             background-color: #A52A2A;
         }
+           /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+                padding: 10px;
+                position: static;
+            }
+
+            .header-search {
+                margin: 10px 0;
+                width: 100%;
+            }
+
+            .content-wrapper {
+                flex-direction: column;
+                margin-top: 0;
+            }
+            
+            .sidebar {
+                width: 100%;
+                min-height: auto;
+            }
+            
+            .content {
+                padding: 10px;
+            }
+            
 
 
     </style>
@@ -284,13 +311,13 @@
     </div>
 </div>
     <div class="main-content">
-<!--header-->
-        <div class="header">
-           
+    <!--header-->
+        <div class="header">  
             <div>
                 <h1><i class="fa-solid fa-users"></i>Add Supplier</h1>
                 <p>Add New Supplier</p>
             </div>
+            <!--Setting icon-->
             <div class="settings-dropdown">
                 <a href="#"><i class="fas fa-cog settings-icon"></i></a>
                 <div class="settings-menu">
@@ -301,6 +328,7 @@
             </div>
         
         </div>
+        <!--form-container-->
         <div class="form-container">
             <form>
                 <label for="supplier-name">Supplier Name:</label>
@@ -318,6 +346,7 @@
                 <button type="submit">ADD</button>
             </form>
         </div>
+
         <script>
             // JavaScript to handle dropdown functionality
             const dropdowns = document.querySelectorAll('.dropdown');
@@ -332,6 +361,7 @@
                     toggle.textContent = isVisible ? '<' : 'v'; // Toggle symbol
                 });
             });
+            // JavaScript to handle settings dropdown functionality
             const settingsIcon = document.querySelector('.settings-icon');
             const settingsMenu = document.querySelector('.settings-menu');
 

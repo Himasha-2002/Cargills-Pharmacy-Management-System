@@ -103,7 +103,6 @@
             flex: 1;
             background-color: #d5d4d4;
             padding: 20px;
-            border-bottom: 5px solid #800000;
         }
 
         .header {
@@ -132,15 +131,20 @@
         .header p {
             color: #b51616;
             margin: 0;
-            padding-left: 60px;
+            padding-left: 70px;
             font-size: 20px;
             font-family: 'Times New Roman', Times, serif;
             font-style: bold;
             margin-top:15px;
         }
-
-    /*settings icon*/
-        .settings-dropdown {
+       
+        .header .settings {
+            font-size: 24px;
+            color: #800000;
+            cursor: pointer;
+        }
+/*settings icon*/
+.settings-dropdown {
         position: relative;
         display: inline-block;
         }
@@ -248,6 +252,10 @@
             background-color: #991111;
         }
 
+        .settings-icon {
+            font-size: 20px;
+            cursor: pointer;
+        }
 
 
     </style>
@@ -311,9 +319,8 @@
             <div>
                 <h1><i class="fa-solid fa-cart-shopping"></i>Purchase Report</h1>
                 <p>Showing Purchase Report</p>
-             </div>
+            </div>
         
-            <!--Setting icon-->    
             <div class="settings-dropdown">
                 <a href="#"><i class="fas fa-cog settings-icon"></i></a>
                 <div class="settings-menu">

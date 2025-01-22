@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,28 @@
     <title>Cargills Pharmacy Login</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
+
+<?php
+include 'db_connect.php';
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $query = "SELECT * FROM users WHERE email='$email'";
+    $result = $conn->query($query);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        if (password_verify($password, $row['password'])) {
+            echo "Login successful!";
+        } else {
+            echo "Invalid password!";
+        }
+    } else {
+        echo "User not found!";
+    }
+}
+?>
+
+
 <style>
     
     body {
@@ -114,18 +137,19 @@ h2 {
                 <img src="profile-icon.jpg" alt="Profile Icon">
             </div>
             <h2>Cargills Pharmacy Login</h2><br>
-            <form>
+            <form method="post" action="log.php">
+              
                 <div class="text-input">
                     <i class="ri-user-fill"></i>
-                    <input type="text" placeholder="Username">
+                    <input type="text" name="username" placeholder="Username">
                     </div><br>
 
                     <div class="text-input">
                         <i class="ri-lock-fill"></i>
-                        <input type="password" placeholder="Enter Password">
+                        <input type="password" name="password" placeholder="Enter Password">
                     </div><br><br>
                 <button type="submit" class="btn login-btn">Login</button><br><br>
-                <a href="verify.html" class="forgot-link">Forgot Password</a>
+                <a href="../verify.php" class="forgot-link">Forgot Password</a>
             </form>
         </div>
     </div>

@@ -1,13 +1,17 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
-    
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <title>Forget Password</title>
-    
-</head>
-<style>
-body {
+ 
+    <title>Verify</title>
+
+    <?php
+echo "Verification system needs to be implemented!";
+?>
+
+
+    <style>
+   body {
     background: url('back11.jpg') no-repeat center center/cover;
     height: 100vh;
     display: flex;
@@ -15,6 +19,7 @@ body {
     justify-content: center;
     margin: 0;
     padding: 0;
+    
 }
 
 .container {
@@ -44,9 +49,18 @@ body {
 
 h2 {
     margin: 10px 0;
-    font-size: 32px;
+    font-size: 24px;
     font-family:'Times New Roman', Times, serif;
+    font-size: 30px;
 }
+
+p {
+    font-size: 19px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 
 .text-input {
              background: #e6e6e6;
@@ -106,32 +120,39 @@ h2 {
 }
 
 
-</style>
+    </style>
+</head>
 <body>
-    <div class="container">
-        <div class="card"><br>
-            <div class="profile-img">
-                <img src="profile-icon.jpg"Profile Icon">
+
+  
+  
+    <body>
+        <div class="container">
+            <div class="card">
+                <div class="profile-img">
+                    <img src="profile-icon.jpg" alt="Profile Icon">
+                </div>
+                <h2>Forget Password</h2>
+                <p>Enter email and contact number below to reset username and password</p>
+
+                <form method="post" action="new.php">
+    <div class="text-input">
+        <i class="ri-mail-fill"></i>
+        <input type="email" name="email" placeholder="Enter email" required>
+    </div><br>
+
+    <div class="text-input">
+        <i class="ri-phone-fill"></i>
+        <input type="number" name="number" placeholder="Enter contact number" required>
+    </div><br><br>
+
+    <button type="submit" class="btn verify-btn">Verify</button><br><br>
+    <a href="log.php" class="login-link">Login here</a>
+</form>
+
             </div>
-            <h2>Forget Password</h2><br>
-            <form>
-                <div class="text-input">
-                    <i class="ri-user-fill"></i>
-                    <input type="text" placeholder="Username">
-                    
-                </div><br>
-                <div class="text-input">
-                    <i class="ri-lock-fill"></i>
-                    <input type="password" placeholder="Enter New Password">
-                </div><br>
-                <div class="text-input">
-                    <i class="ri-lock-fill"></i>
-                    <input type="password" placeholder="Confirm Password">
-                </div><br><br><br>
-                <button type="submit" class="btn reset-btn">Reset Password</button><br><br>
-                <a href="log.html" class="login-link">Login Here</a>
-            </form>
         </div>
-    </div>
+    
+    
 </body>
 </html>

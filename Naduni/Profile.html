@@ -6,7 +6,7 @@
     <title>Profile</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-
+        /* General styles */
         * {
             margin: 0;
             padding: 0;
@@ -16,7 +16,7 @@
 
         body {
             display: flex;
-            height: 100vh;
+            height: 115vh;
             background-color: #f0f0f0;
         }
 
@@ -101,15 +101,13 @@
             cursor: pointer;
         }
 
-      /*main content*/
       
         .main-content {
             flex: 1;
             background-color: #d5d4d4;
             padding: 20px;
-        
         }
-        /*header*/
+
         .header {
             border-bottom: 5px solid #800000;
             margin-bottom: 50px;
@@ -136,13 +134,11 @@
         .header p {
             color: #b51616;
             margin: 0;
-            padding-left: 60px;
             font-size: 20px;
             font-family: 'Times New Roman', Times, serif;
             font-style: bold;
             margin-top:15px;
         }
-
         /*settings icon*/
         .settings-dropdown {
         position: relative;
@@ -161,7 +157,7 @@
         display: none;
         position: absolute;
         right: 0;
-        top: 35px;
+        top: 40px;
         background-color: #ad5062;
         border: 1px solid #800000;
         border-radius: 5px;
@@ -186,12 +182,19 @@
         .settings-menu a:hover {
         background-color: #4e0312;
         }
+
+
+        .header .settings {
+            font-size: 24px;
+            color: #800000;
+            cursor: pointer;
+        }
+
         .form-container {
             margin-top: 30px;
             background-color: #d3d3d3;
             padding: 20px;
             border-radius: 5px;
-            border-bottom: 5px solid #800000;
             
         }
 
@@ -240,10 +243,9 @@
     </style>
 </head>
 <body>
-        <!--sidebar-->
     <div class="sidebar">
         <div class="profile">
-            <img src="Admin.jpg" alt="Admin">
+            <br><img src="Admin.jpg" alt="Admin">
             <h3>ADMIN</h3>
         </div>
         <div class="menu">
@@ -291,27 +293,54 @@
                     <a href="#">Purchase Report</a>
                 </div>
             </div>
-    
         </div>
     </div>
     <div class="main-content">
-         <!--header-->
         <div class="header">           
             <div>
-                <h1><i class="fas fa-user"></i>Profile</h1>
+                <h1>Profile</h1>
                 <p>Manage Admin Details</p>
-            </div>   
-            <!--Setting icon-->          
+            </div>       
             <div class="settings-dropdown">
                 <a href="#"><i class="fas fa-cog settings-icon"></i></a>
                 <div class="settings-menu">
-                    <a href="#"><i class="fas fa-user"></i>My Profile</a>
-                    <a href="#"><i class="fas fa-key"></i>Change Password</a>
+                    <a href="..\Naduni\Profile.html"><i class="fas fa-user"></i>My Profile</a>
+                    <a href="..\Cargils\Password.html"><i class="fas fa-key"></i>Change Password</a>
                     <a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
                 </div>
             </div>
         </div>
-       
+        <script>
+            // JavaScript to handle dropdown functionality
+            const dropdowns = document.querySelectorAll('.dropdown');
+    
+            dropdowns.forEach(dropdown => {
+                const toggle = dropdown.querySelector('.toggle');
+                const content = dropdown.querySelector('.dropdown-content');
+    
+                toggle.addEventListener('click', () => {
+                    const isVisible = content.style.display === 'flex';
+                    content.style.display = isVisible ? 'none' : 'flex';
+                    toggle.textContent = isVisible ? '<' : 'v'; // Toggle symbol
+                });
+            });
+             // JavaScript to handle settings dropdown functionality
+        
+             const settingsIcon = document.querySelector('.settings-icon');
+            const settingsMenu = document.querySelector('.settings-menu');
+
+            settingsIcon.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isVisible = settingsMenu.style.display === 'block';
+            settingsMenu.style.display = isVisible ? 'none' : 'block';
+            });
+
+            document.addEventListener('click', (e) => {
+            if (!e.target.closest('.settings-dropdown')) {
+            settingsMenu.style.display = 'none';
+             }
+            });
+        </script>
 
 <div class="form-container">
     <form>
@@ -336,40 +365,5 @@
                     <button type="reset" class="btn cancel">Cancel</button>
                 </div>
             </form>
-</div>
-            <script>
-                // JavaScript to handle dropdown functionality
-                const dropdowns = document.querySelectorAll('.dropdown');
-            
-                dropdowns.forEach(dropdown => {
-                    const toggle = dropdown.querySelector('.toggle');
-                    const content = dropdown.querySelector('.dropdown-content');
-            
-                    toggle.addEventListener('click', () => {
-                        const isVisible = content.style.display === 'flex';
-                        content.style.display = isVisible ? 'none' : 'flex';
-                        toggle.textContent = isVisible ? '<' : 'v'; // Toggle symbol
-                    });
-                });
-            
-                // JavaScript to handle settings dropdown functionality
-            
-                const settingsIcon = document.querySelector('.settings-icon');
-                const settingsMenu = document.querySelector('.settings-menu');
-            
-                settingsIcon.addEventListener('click', (e) => {
-                e.preventDefault();
-                const isVisible = settingsMenu.style.display === 'block';
-                settingsMenu.style.display = isVisible ? 'none' : 'block';
-                });
-            
-                document.addEventListener('click', (e) => {
-                if (!e.target.closest('.settings-dropdown')) {
-                settingsMenu.style.display = 'none';
-                 }
-                });
-            
-            </script>
-                       
     </body>
-</html>
+    </html>

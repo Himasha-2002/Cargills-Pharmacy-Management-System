@@ -18,16 +18,22 @@
             display: flex;
             height: 100vh;
             background-color: #f0f0f0;
+            overflow-x: hidden;
         }
     /* Sidebar */
         .sidebar {
-            width: 15%;
+            width: 250px;
             background-color: #7c0d0d;
             color: white;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px 0;
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            transition: all 0.3s ease;
         }
 
         .sidebar .profile {
@@ -43,7 +49,6 @@
         }
 
         .sidebar .profile h3 {
-            font-size: 18px;
             font-weight: bold;
             font-size: 25px;
             font-family:'Times New Roman';
@@ -104,6 +109,8 @@
             flex: 1;
             background-color: #d5d4d4;
             padding: 20px;
+            margin-left: 250px;
+            transition: margin-left 0.3s ease;
             border-bottom: 5px solid #800000;
         }
     /*header*/
@@ -144,11 +151,12 @@
         .settings-dropdown {
         position: relative;
         display: inline-block;
+        margin-left: auto;
         }
 
         .settings-icon {
         right: 50px;
-        font-size: 40px;
+        font-size: 30px;
         color: #040404;
         cursor: pointer;
         text-decoration: none;
@@ -158,10 +166,11 @@
         display: none;
         position: absolute;
         right: 0;
-        top: 40px;
+        top: 35px;
         background-color: #ad5062;
         border: 1px solid #800000;
         border-radius: 5px;
+        border-width: 2px;
         width: 150px;
         box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
         z-index: 1;
@@ -182,7 +191,7 @@
         .settings-menu a:hover {
         background-color: #4e0312;
         }
-        .filter {
+        .search-section {
             display: flex;
             align-items: center;
             background-color: #f0f0f0;
@@ -192,7 +201,7 @@
             margin-bottom: 20px;
         }
 
-        .filter label {
+        .search-section label {
             font-size: 18px;
             margin-left: 10px;
             margin-right: 10px;
@@ -247,7 +256,72 @@
         .table tr:hover {
             background-color: #f1f1f1;
         }
-        
+
+     /* Sidebar Toggle for Mobile */
+     .sidebar-toggle {
+            display: none;
+        }
+    /* Responsive Design*/
+        @media (max-width: 768px) {
+            .sidebar {
+                left: -250px; 
+            }
+        /* Show sidebar */
+            .sidebar.active {
+                left: 0; 
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .sidebar-toggle {
+                display: block;
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                background-color: #7c0d0d;
+                color: white;
+                padding: 10px;
+                border: none;
+                cursor: pointer;
+                font-size: 20px;
+                z-index: 2;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .header h1 {
+                font-size: 25px;
+            }
+
+            .header p {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 22px;
+            }
+
+            .header p {
+                font-size: 14px;
+            }
+
+            .form-container input {
+                font-size: 12px;
+            }
+
+            .form-container button {
+                width: 100%;
+            }
+            
+        }
+
 
 
     </style>
@@ -260,77 +334,81 @@
             <h3>ADMIN</h3>
         </div>
         <div class="menu">
-            <a href="#"><i class="fas fa-th-large"></i> Dashboard</a>
+            <a href="..\dashboard\Dashboard.html"><i class="fas fa-th-large"></i> Dashboard</a>
         <div class="dropdown">
             <a href="#"><i class="fa-solid fa-file-invoice"></i> Invoice<span class="toggle"><</span></a>
             <div class="dropdown-content">
-                <a href="New Invoice.html">New Invoice</a>
-                <a href="#">Manage Invoice</a>
+                <a href="..\Cargils\New Invoice.html">New Invoice</a>
+                <a href="..\dashboard\Manage Invoice.html">Manage Invoice</a>
             </div>
         </div>
         <div class="dropdown">
             <a href="#"><i class="fa-solid fa-users"></i> Customer<span class="toggle"><</span></a>
             <div class="dropdown-content">
-                <a href="#">Add Customer</a>
-                <a href="#">Manage Customer</a>
+                <a href="..\New\Add Customer.html">Add Customer</a>
+                <a href="..\Naduni\Manage Customer.html">Manage Customer</a>
             </div>
         </div>
         <div class="dropdown">
             <a href="#"><i class="fa-solid fa-capsules"></i> Medicine<span class="toggle"><</span></a>
             <div class="dropdown-content">
-                <a href="#">Add Medicine</a>
-                <a href="#">Manage Medicine</a>
-                <a href="#">Manage Medicine Stock</a>
+                <a href="..\Medicine\Add_Medicine.html">Add Medicine</a>
+                <a href="..\Medicine\Manage_Medicine.html">Manage Medicine</a>
+                <a href="..\Medicine\Manage_Medicine_Stock.html">Manage Medicine Stock</a>
             </div>
         </div>
         <div class="dropdown">
             <a href="#"><i class="fas fa-truck"></i> Supplier<span class="toggle"><</span></a>
             <div class="dropdown-content">
-                <a href="Add Supplier.html">Add Supplier</a>
-                <a href="Manage Supplier.html">Manage Supplier</a>
+                <a href="..\Cargils\Add Supplier.php">Add Supplier</a>
+                <a href="..\Cargils\Manage Supplier.html">Manage Supplier</a>
             </div>
         </div>
         <div class="dropdown">
             <a href="#"><i class="fa-solid fa-cart-shopping"></i> Purchase<span class="toggle"><</span></a>
             <div class="dropdown-content">
-                <a href="#">Add Purchase</a>
-                <a href="#">Manage Purchase</a>
+                <a href="..\New\Add Purchase.html">Add Purchase</a>
+                <a href="..\New\Manage Purchase.html">Manage Purchase</a>
             </div>
         </div>
         <div class="dropdown">
             <a href="#"><i class="fas fa-chart-bar"></i> Report<span class="toggle"><</span></a>
             <div class="dropdown-content">
-                <a href="#">Sales Report</a>
-                <a href="#">Purchase Report</a>
+                <a href="..\dashboard\Sales report.html">Sales Report</a>
+                <a href="..\New\Purchase Report.html">Purchase Report</a>
             </div>
         </div>  
     </div>
   </div>
+     <!--sidebar Toggle button for smaller screen-->
+     <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+    
     <div class="main-content">
 <!--header-->
-        <div class="header">
-           
+        <div class="header">  
             <div>
                 <h1><i class="fas fa-truck"></i>Manage Supplier</h1>
                 <p>Manage Existing Supplier</p>
             </div>
+              <!--Setting icon-->
             <div class="settings-dropdown">
                 <a href="#"><i class="fas fa-cog settings-icon"></i></a>
                 <div class="settings-menu">
-                    <a href="#"><i class="fas fa-user"></i>My Profile</a>
-                    <a href="Password.html"><i class="fas fa-key"></i>Change Password</a>
+                    <a href="..\Naduni\Profile.html"><i class="fas fa-user"></i>My Profile</a>
+                    <a href="..\Cargils\Password.html"><i class="fas fa-key"></i>Change Password</a>
                     <a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
                 </div>
             </div>
         </div>
-        <div class="filter">
+        <!--search section-->
+        <div class="search-section">
             <label for="Search"><span>Search:</span></label>
             <div class="search-container">
                 <input type="text" placeholder="Search Supplier">
                 <i class="fa fa-search icon"></i>
             </div>
         </div><br>
-        
+        <!--table-->
 
         <table class="table">
             <thead>
@@ -432,8 +510,13 @@
             settingsMenu.style.display = 'none';
              }
             });
+        // JavaScript to handle sidebar toggle on smaller screens
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        }
+            
     </script>
 </body>
 </html>
 
-        
+    

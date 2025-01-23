@@ -18,16 +18,22 @@
             display: flex;
             height: 100vh;
             background-color: #f0f0f0;
+            overflow-x: hidden;
         }
     /* Sidebar */
         .sidebar {
-            width: 15%;
+            width: 250px;
             background-color: #7c0d0d;
             color: white;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px 0;
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            transition: all 0.3s ease;
         }
 
         .sidebar .profile {
@@ -104,6 +110,7 @@
             flex: 1;
             background-color: #d5d4d4;
             padding: 20px;
+            margin-left: 250px;
             border-bottom: 5px solid #800000;
         }
     /*header*/
@@ -116,6 +123,7 @@
             background-color: #b8b6b6;
             padding: 10px 20px;
             border-radius: 5px;
+            width: 100width: 96%;%;
         }
         
 
@@ -147,7 +155,7 @@
 
         .settings-icon {
         right: 50px;
-        font-size: 40px;
+        font-size: 30px;
         color: #040404;
         cursor: pointer;
         text-decoration: none;
@@ -157,10 +165,11 @@
         display: none;
         position: absolute;
         right: 0;
-        top: 40px;
+        top: 35px;
         background-color: #ad5062;
         border: 1px solid #800000;
         border-radius: 5px;
+        border-width: 2px;
         width: 150px;
         box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
         z-index: 1;
@@ -181,7 +190,10 @@
         .settings-menu a:hover {
         background-color: #4e0312;
         }
-
+/*invoice*/
+        .invoice-form{
+          width: 100%;
+        }
         .invoice-form .form-header {
             display: flex;
             align-items: center;
@@ -194,7 +206,7 @@
         }
 
         .invoice-form .form-header div {
-             width: 22%;
+             width: 100%;
         }
 
 .invoice-form .form-header label {
@@ -205,7 +217,7 @@
 .invoice-form .form-header input,
 .invoice-form .form-header select {
  padding: 8px;
- width: 200px;
+ width: 100%;
  border: 1px solid #ccc;
  border-radius: 5px;
  margin-right: 10px;
@@ -299,6 +311,70 @@ button.add-row {
   cursor: pointer;
   margin-top: 20px;
 }
+     /* Sidebar Toggle for Mobile */
+     .sidebar-toggle {
+            display: none;
+        }
+    /* Responsive Design*/
+        @media (max-width: 768px) {
+            .sidebar {
+                left: -250px; 
+            }
+        /* Show sidebar */
+            .sidebar.active {
+                left: 0; 
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .sidebar-toggle {
+                display: block;
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                background-color: #7c0d0d;
+                color: white;
+                padding: 10px;
+                border: none;
+                cursor: pointer;
+                font-size: 20px;
+                z-index: 2;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .header h1 {
+                font-size: 25px;
+            }
+
+            .header p {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 22px;
+            }
+
+            .header p {
+                font-size: 14px;
+            }
+
+            .form-container input {
+                font-size: 12px;
+            }
+
+            .form-container button {
+                width: 100%;
+            }
+            
+        }
 
 </style>
 </head>
@@ -310,7 +386,7 @@ button.add-row {
             <h3>ADMIN</h3>
         </div>
         <div class="menu">
-          <a href="#"><i class="fas fa-th-large"></i> Dashboard</a>
+          <a href="..\dashboard\Dashboard.html"><i class="fas fa-th-large"></i> Dashboard</a>
       <div class="dropdown">
           <a href="#"><i class="fa-solid fa-file-invoice"></i> Invoice<span class="toggle"><</span></a>
           <div class="dropdown-content">
@@ -523,6 +599,11 @@ button.add-row {
             settingsMenu.style.display = 'none';
              }
             });
+        // JavaScript to handle sidebar toggle on smaller screens
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        }
+          
     </script>
     </body>
     </html>

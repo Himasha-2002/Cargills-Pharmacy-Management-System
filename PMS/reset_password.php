@@ -1,10 +1,30 @@
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
- 
-    <title>Verify</title>
-    <style>
-   body {
+    <title>Forget Password</title>
+    
+</head>
+
+<?php
+include 'db_connect.php';
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $new_password = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
+    $query = "UPDATE users SET password='$new_password' WHERE email='$email'";
+    if ($conn->query($query) === TRUE) {
+        echo "Password reset successful!";
+    } else {
+        echo "Error updating password!";
+    }
+}
+?>
+
+<style>
+body {
     background: url('back11.jpg') no-repeat center center/cover;
     height: 100vh;
     display: flex;
@@ -12,7 +32,6 @@
     justify-content: center;
     margin: 0;
     padding: 0;
-    
 }
 
 .container {
@@ -42,18 +61,9 @@
 
 h2 {
     margin: 10px 0;
-    font-size: 24px;
+    font-size: 32px;
     font-family:'Times New Roman', Times, serif;
-    font-size: 30px;
 }
-
-p {
-    font-size: 19px;
-    font-size: 16px;
-    margin-bottom: 20px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
 
 .text-input {
              background: #e6e6e6;
@@ -113,42 +123,33 @@ p {
 }
 
 
-    </style>
-</head>
+</style>
 <body>
-
-  
-  
-    <body>
-        <div class="container">
-            <div class="card">
-                <div class="profile-img">
-                    <img src="profile-icon.jpg" alt="Profile Icon">
-                </div>
-                <h2>Forget Password</h2>
-                <p>Enter email and contact number below to reset username and password</p>
-                <form><br>
-
-                    <div class="text-input">
-                        <i class="ri-mail-fill"></i>
-                        <label for="email"></label>
-                        <input type="email" id="email" placeholder="Enter email" required>
-                        
-                    </div><br>
-
-                    <div class="text-input">
-                        <i class="ri-phone-fill"></i>
-                        <label for="number"></label>
-                        <input type="number" id="number" placeholder="Enter contact number" required>
-                        
-                    </div><br><br>
-                    
-                    <button type="submit" class="btn verify-btn">Verify</button><br><br>
-                    <a href="new.html" class="login-link">Login here</a>
-                </form>
+    <div class="container">
+        <div class="card"><br>
+            <div class="profile-img">
+                <img src="profile-icon.jpg"Profile Icon>
             </div>
+            <h2>Forget Password</h2><br>
+
+            <form method="post" action="verify.php">
+    <div class="text-input">
+        <i class="ri-user-fill"></i>
+        <input type="text" name="username" placeholder="Username" required>
+    </div><br>
+    <div class="text-input">
+        <i class="ri-lock-fill"></i>
+        <input type="password" name="new_password" placeholder="Enter New Password" required>
+    </div><br>
+    <div class="text-input">
+        <i class="ri-lock-fill"></i>
+        <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+    </div><br><br><br>
+    <button type="submit" class="btn reset-btn">Reset Password</button><br><br>
+    <a href="login.php" class="login-link">Login Here</a>
+</form>
+
         </div>
-    
-    
+    </div>
 </body>
 </html>

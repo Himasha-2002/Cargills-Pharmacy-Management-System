@@ -17,7 +17,7 @@
         body {
             display: flex;
             height: 100vh;
-            background-color: #f0f0f0;
+            background-color: #d5d4d4;
             overflow-x: hidden;
         }
     /* Sidebar */
@@ -49,7 +49,6 @@
         }
 
         .sidebar .profile h3 {
-            font-size: 18px;
             font-weight: bold;
             font-size: 25px;
             font-family:'Times New Roman';
@@ -111,6 +110,7 @@
             background-color: #d5d4d4;
             padding: 20px;
             margin-left: 250px;
+            transition: margin-left 0.3s ease;
             border-bottom: 5px solid #800000;
         }
     /*header*/
@@ -123,7 +123,6 @@
             background-color: #b8b6b6;
             padding: 10px 20px;
             border-radius: 5px;
-            width: 100width: 96%;%;
         }
         
 
@@ -405,8 +404,8 @@ button.add-row {
           <a href="#"><i class="fa-solid fa-capsules"></i> Medicine<span class="toggle"><</span></a>
           <div class="dropdown-content">
               <a href="..\Medicine\Add_Medicine.html">Add Medicine</a>
-              <a href="..\Medicine\Manage_medicine_Stock.html">Manage Medicine</a>
-              <a href="..\Medicine\Manage_medicine.html">Manage Medicine Stock</a>
+              <a href="..\Medicine\Manage_medicine.html">Manage Medicine</a>
+              <a href="..\Medicine\Manage_medicine_Stock.html">Manage Medicine Stock</a>
           </div>
       </div>
       <div class="dropdown">
@@ -432,6 +431,9 @@ button.add-row {
       </div>    
   </div>
 </div>
+ <!--sidebar Toggle button for smaller screen-->
+ <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+    
     <div class="main-content">
 <!--header-->
         <div class="header">

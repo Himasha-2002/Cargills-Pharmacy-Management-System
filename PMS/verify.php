@@ -5,10 +5,6 @@
  
     <title>Verify</title>
 
-    <?php
-echo "Verification system needs to be implemented!";
-?>
-
 
     <style>
    body {
@@ -147,7 +143,7 @@ p {
     </div><br><br>
 
     <button type="submit" class="btn verify-btn">Verify</button><br><br>
-    <a href="log.php" class="login-link">Login here</a>
+    <a href="login.php" class="login-link">Login here</a>
 </form>
 
             </div>

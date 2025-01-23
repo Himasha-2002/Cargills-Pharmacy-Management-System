@@ -149,7 +149,7 @@ h2 {
                         <input type="password" name="password" placeholder="Enter Password">
                     </div><br><br>
                 <button type="submit" class="btn login-btn">Login</button><br><br>
-                <a href="../verify.php" class="forgot-link">Forgot Password</a>
+                <a href="verify.php" class="forgot-link">Forgot Password</a>
             </form>
         </div>
     </div>

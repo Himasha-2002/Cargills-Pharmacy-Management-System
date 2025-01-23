@@ -4,7 +4,36 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
  
     <title>Verify</title>
+ 
+    <?php
+  session_start(); // Start session
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $user_email = $_POST["email"]; // Get user email/phone
+
+    // Generate 6-digit OTP
+    $otp = rand(100000, 999999);
+    echo "Generated OTP: " . $_SESSION['otp']; 
+
+
+    // Store OTP in session or database
+    $_SESSION['otp'] = $otp;
+    $_SESSION['email'] = $user_email;
+
+    // Send OTP via email (example using mail function)
+    $subject = "Your OTP Code";
+    $message = "Your OTP is: " . $otp;
+    $headers = "From: noreply@example.com";
+
+    // Use mail() function (configure SMTP settings for actual use)
+    mail($user_email, $subject, $message, $headers);
+
+    // Redirect to otp_verification.php
+    header("Location: otp_verification.php");
+    exit();
+    
+}
+?>
 
     <style>
    body {
@@ -131,7 +160,7 @@ p {
                 <h2>Forget Password</h2>
                 <p>Enter email and contact number below to reset username and password</p>
 
-                <form method="post" action="new.php">
+                <form method="post" action="verify.php">
     <div class="text-input">
         <i class="ri-mail-fill"></i>
         <input type="email" name="email" placeholder="Enter email" required>

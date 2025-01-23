@@ -5,7 +5,7 @@
 <head>
     
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <title>Forget Password</title>
+    <title>Reset Password</title>
     
 </head>
 
@@ -130,7 +130,7 @@ h2 {
             <div class="profile-img">
                 <img src="profile-icon.jpg"Profile Icon>
             </div>
-            <h2>Forget Password</h2><br>
+            <h2>Reset Password</h2><br>
 
             <form method="post" action="verify.php">
     <div class="text-input">

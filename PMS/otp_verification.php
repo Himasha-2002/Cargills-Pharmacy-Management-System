@@ -5,6 +5,25 @@
     <title>OTP Verification</title>
 </head>
 
+<?php
+session_start(); // Start session
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $entered_otp = $_POST["otp"]; // Get OTP from user
+
+    if ($entered_otp == $_SESSION['otp']) {
+        echo "OTP Verified Successfully!";
+        // Proceed with login or registration
+        unset($_SESSION['otp']); 
+        var_dump($_SESSION['otp']); // Debugging
+
+        // Clear OTP after successful verification
+    } else {
+        echo "Invalid OTP. Please try again.";
+    }
+}
+?>
+
 <style>
 body {
     background: url('back11.jpg') no-repeat center center/cover;
@@ -61,7 +80,7 @@ h2 {
 
 .btn {
     display: inline-block;
-    width: 100%;
+    width: 80%;
     background-color: #ffffff;
     color: #800000;
     border: none;
@@ -89,7 +108,7 @@ h2 {
 
         <form method="post">
             <input type="text" name="otp" class="otp-input" placeholder="Enter OTP" required>
-            <button type="submit" class="btn">Verify OTP</button>
+            <a href="reset_password.php" button type="submit" class="btn">Verify OTP</button></a>
         </form>
 
         <?php if (isset($_SESSION['error'])) { 

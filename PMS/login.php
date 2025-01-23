@@ -8,24 +8,44 @@
 </head>
 
 <?php
-include 'db_connect.php';
+session_start(); 
+include 'db_connect.php'; 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $query = "SELECT * FROM users WHERE email='$email'";
-    $result = $conn->query($query);
+    $username = trim($_POST['username']); 
+    $password = trim($_POST['password']); 
+
+    // Check if the user exists
+    $stmt = $conn->prepare("SELECT * FROM admin_credentials WHERE USERNAME = ?");
+    if ($stmt === false) {
+        die("Prepare failed: " . $conn->error);
+    }
+
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    // Verify user exists
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        if (password_verify($password, $row['password'])) {
-            echo "Login successful!";
+
+        // Use the correct column names (uppercase)
+        if (password_verify($password, $row['PASSWORD'])) { // ✅ Check if password matches
+            $_SESSION['USERNAME'] = $row['USERNAME']; // ✅ Store only username
+            echo "<script>alert('Login successful!'); window.location.href='dashboard.php';</script>";
+            exit();
         } else {
-            echo "Invalid password!";
+            echo "<script>alert('Invalid password!'); window.history.back();</script>";
         }
     } else {
-        echo "User not found!";
+        echo "<script>alert('User not found!'); window.history.back();</script>";
     }
+
+    $stmt->close();
+    $conn->close();
 }
 ?>
+
 
 
 <style>
@@ -54,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     text-align: center;
     color: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border: 2px solid #0f0e0e; /* Blue border for the card */
+    border: 2px solid #0f0e0e; 
 }
 
 .profile-img img {
@@ -129,27 +149,25 @@ h2 {
 }
 
 </style>
+
 <body>
-   
     <div class="container">
         <div class="card"><br>
             <div class="profile-img">
                 <img src="profile-icon.jpg" alt="Profile Icon">
             </div>
             <h2>Cargills Pharmacy Login</h2><br>
-            <form method="post" action="log.php">
-              
+            <form method="post" action="login.php">
                 <div class="text-input">
                     <i class="ri-user-fill"></i>
-                    <input type="text" name="username" placeholder="Username">
-                    </div><br>
-
-                    <div class="text-input">
-                        <i class="ri-lock-fill"></i>
-                        <input type="password" name="password" placeholder="Enter Password">
-                    </div><br><br>
+                    <input type="username" name="username" placeholder="Enter Username" required>
+                </div><br>
+                <div class="text-input">
+                    <i class="ri-lock-fill"></i>
+                    <input type="password" name="password" placeholder="Enter Password" required>
+                </div><br><br>
                 <button type="submit" class="btn login-btn">Login</button><br><br>
-                <a href="verify.php" class="forgot-link">Forgot Password</a>
+                <a href="verify.php" class="forgot-link">Forgot Password?</a>
             </form>
         </div>
     </div>

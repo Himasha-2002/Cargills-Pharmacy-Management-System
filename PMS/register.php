@@ -8,16 +8,34 @@
 
     <?php
 include 'db_connect.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
+
+    $pharmacy_name = $_POST['pharmacy_name'];
+    $address = $_POST['address'];
+    $contact_number = $_POST['number'];
+    $username = $_POST['username'];      
     $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $query = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
-    if ($conn->query($query) === TRUE) {
-        echo "Registration successful!";
+    $query = "INSERT INTO admin_credentials (USERNAME, EMAIL, PASSWORD) VALUES ('$username', '$email', '$password')";
+    
+    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+
+    // Prepare SQL query
+    $stmt = $conn->prepare("INSERT INTO admin_credentials (USERNAME, PASSWORD, PHARMACY, ADDRESS, EMAIL, NUMBER) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssi", $username, $hashed_password, $pharmacy_name, $address, $email, $contact_number);
+
+    // Execute and check if successful
+    if ($stmt->execute()) {
+        echo "<script>alert('Setup Successful! Redirecting to login page.'); window.location.href='login.php';</script>";
     } else {
-        echo "Error: " . $conn->error;
+        echo "Error: " . $stmt->error;
     }
+
+    // Close connections
+    $stmt->close();
+    $conn->close();
+
 }
 ?>
 
@@ -110,7 +128,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container">
         <h1>Pharmacy Management<br>One Time Setup</h1>
         <p>Enter Necessary Pharmacy Details</p><br>
-        <form method="post" action="first.php">
+        <form method="post" action="register.php">
     <div class="text-input">
         <i class="ri-hospital-fill"></i>
         <input type="text" placeholder="Pharmacy Name" name="pharmacy_name" required>
@@ -146,7 +164,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="password" placeholder="Confirm Password" name="confirm_password" required>
     </div><br><br>
 
-    <a href="..\dashboard\Dashboard.html">  <button type="submit" class="btn">START</button ></a>
+    <button type="submit" class="btn">START</button >
 </form>
 
     

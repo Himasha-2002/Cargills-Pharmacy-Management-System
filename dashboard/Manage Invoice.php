@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Invoice</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* General styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 15%;
+            background-color: #7c0d0d;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .sidebar .profile {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .sidebar .profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .sidebar .profile h3 {
+            font-size: 18px;
+            font-weight: bold;
+            font-size: 25px;
+            font-family:'Times New Roman';
+        }
+
+        .sidebar .menu {
+            width: 100%;
+        }
+
+        .sidebar .menu a {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: white;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+
+        .sidebar .menu a:hover {
+            background-color: #4e0312;
+        }
+
+        .sidebar .menu a i {
+            margin-right: 10px;
+        }
+        /* Dropdown styles */
+        .dropdown {
+            width: 100%;
+        }
+
+        .dropdown-content {
+            display: none;
+            flex-direction: column;
+            background-color: #ad5062;
+            border: 1px solid #800000;
+        }
+
+        .dropdown-content a {
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            font-size: 9px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #800029;
+        }
+
+       
+        .dropdown .toggle {
+            margin-left: auto;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+      
+        .main-content {
+            flex: 1;
+            background-color: #d5d4d4;
+            padding: 20px;
+        }
+
+        .header {
+            border-bottom: 5px solid #800000;
+            margin-bottom: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: Right;
+            background-color: #b8b6b6;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        
+
+        .header h1 {
+            display: flex;
+            align-items: center; 
+            gap: 20px;
+            color: #040404;
+            margin: 0;
+            font-size: 35px;
+            font-family: 'Times New Roman', Times, serif;
+            font-style: bold;
+        }
+
+        .header p {
+            color: #b51616;
+            margin: 0;
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            font-style: bold;
+            margin-top:15px;
+        }
+        .header a{
+            position: absolute;
+            top: 40px;
+            right: 50px;
+            font-size: 40px;
+            color: #040404;
+            pointer-events: none;
+        }
+
+        .header .settings {
+            font-size: 24px;
+            color: #800000;
+            cursor: pointer;
+        }
+        .search-section {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .search-section label {
+            margin-right: 10px;
+        }
+
+        .search-section input {
+            padding: 8px;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .filter {
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .filter label {
+            font-size: 16px;
+            margin-right: 10px;
+            font-family: Times New Roman;
+        }
+
+        .filter input {
+            padding: 5px;
+            font-size: 14px;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .table th {
+            background-color: #635757;
+            color: white;
+        }
+
+        .table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .actions {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .actions button {
+            background-color: #800000;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            font-family: Iskoola Pota;
+        }
+
+        .actions button:hover {
+            background-color: #660000;
+        }
+
+        .total-sales {
+            font-size: 16px;
+            margin-top: 20px;
+            text-align: right;
+            font-family: Aptos Display;
+            text-align: left;
+        }
+        .settings-dropdown {
+        position: relative;
+        display: inline-block;
+        }
+
+        .settings-icon {
+        right: 50px;
+        font-size: 30px;
+        color: #040404;
+        cursor: pointer;
+        text-decoration: none;
+        }
+
+        .settings-menu {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 40px;
+        background-color: #ad5062;
+        border: 1px solid #800000;
+        border-radius: 5px;
+        width: 150px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        }
+
+        .settings-menu a {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s;
+            gap: 10px; 
+        }
+
+        .settings-menu a:hover {
+        background-color: #4e0312;
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="profile">
+            <img src="Admin.jpg" alt="Admin">
+            <h3>ADMIN</h3>
+        </div>
+        <div class="menu">
+                <a href="#"><i class="fas fa-th-large"></i> Dashboard</a>
+            <div class="dropdown">
+                <a href="#"><i class="fa-solid fa-file-invoice"></i> Invoice<span class="toggle"><</span></a>
+                <div class="dropdown-content">
+                    <a href="..\Cargils\New Invoice.html">New Invoice</a>
+                    <a href="..\dashboard\Manage Invoice.html">Manage Invoice</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#"><i class="fa-solid fa-users"></i> Customer<span class="toggle"><</span></a>
+                <div class="dropdown-content">
+                    <a href="..\New\Add Customer.html">Add Customer</a>
+                    <a href="..\Naduni\Manage Customer.html">Manage Customer</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#"><i class="fa-solid fa-capsules"></i> Medicine<span class="toggle"><</span></a>
+                <div class="dropdown-content">
+                    <a href="..\Medicine\Add_Medicine.html">Add Medicine</a>
+                    <a href="..\Medicine\Manage_medicine_Stock.html">Manage Medicine</a>
+                    <a href="..\Medicine\Manage_medicine.html">Manage Medicine Stock</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#"><i class="fas fa-truck"></i> Supplier<span class="toggle"><</span></a>
+                <div class="dropdown-content">
+                    <a href="..\Cargils\Add Supplier.html">Add Supplier</a>
+                    <a href="..\Cargils\Manage Supplier.html">Manage Supplier</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#"><i class="fa-solid fa-cart-shopping"></i> Purchase<span class="toggle"><</span></a>
+                <div class="dropdown-content">
+                    <a href="..\New\Add Purchase.html">Add Purchase</a>
+                    <a href="..\New\Manage Purchase.html">Manage Purchase</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#"><i class="fas fa-chart-bar"></i> Report<span class="toggle"><</span></a>
+                <div class="dropdown-content">
+                    <a href="..\dashboard\Sales report.html">Sales Report</a>
+                    <a href="..\New\Purchase Report.html">Purchase Report</a>
+                </div>
+            </div>
+            
+               
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="header">           
+            <div>
+                <h1><i class="fa-solid fa-cart-shopping"></i>Manage Invoice</h1>
+                <p>Manage Existing Invoice</p>
+            </div>       
+            <a href="#"><i class="fas fa-cog settings-icon"></i></a>
+            <div class="settings-menu">
+                <a href="..\Naduni\Profile.html"><i class="fas fa-user"></i>My Profile</a>
+                <a href="..\Cargils\Password.html"><i class="fas fa-key"></i>Change Password</a>
+                <a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
+            </div>
+        </div>
+        <div class="search-section">
+            <label for="voucher"><b>Search:</b></label>
+            <input type="text" id="voucher" placeholder="Invoice Number">
+            <input type="text" placeholder="By Customer Name">
+        </div>
+        <div class="filter">
+            <div>
+                <label for="end-date">By Invoice Date:</label>
+                <input type="date" id="end-date">
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>SL</th>
+                    <th>Invoice Number</th>
+                    <th>Customer Name</th>
+                    <th>Date</th>
+                    <th>Total Amount</th>
+                    <th>Total Discount</th>
+                    <th>Net Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>.....</td>
+                    <td>.....</td>
+                    <td>.....</td>
+                    <td>.....</td>
+                    <td>.....</td>
+                    <td>.....</td>
+                    <td>.....</td>
+                    <td>.....</td>
+                </tr>
+                <tr>
+                    <td>.....</td>
+                    <td>.....</td>
+                    <td>.....</td>
+                    <td>.....</td>
+                    <td>.....</td>
+                    <td>.....</td>
+                    <td>.....</td>
+                    <td>.....</td>
+                </tr>
+                <tr>
+                    <td>.....</td>
+                    <td>.....</td>
+                    <td>.....</td>
+                    <td>.....</td>
+                    <td>.....</td>
+                    <td>.....</td>
+                    <td>.....</td>
+                    <td>.....</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="actions">
+            <button class="btn btn-primary" type="submit">print</button>
+       </div>
+
+     
+       <script>
+        // JavaScript to handle dropdown functionality
+        const dropdowns = document.querySelectorAll('.dropdown');
+
+        dropdowns.forEach(dropdown => {
+            const toggle = dropdown.querySelector('.toggle');
+            const content = dropdown.querySelector('.dropdown-content');
+
+            toggle.addEventListener('click', () => {
+                const isVisible = content.style.display === 'flex';
+                content.style.display = isVisible ? 'none' : 'flex';
+                toggle.textContent = isVisible ? '<' : 'v'; // Toggle symbol
+            });
+        });
+        // JavaScript to handle settings dropdown functionality
+    
+        const settingsIcon = document.querySelector('.settings-icon');
+        const settingsMenu = document.querySelector('.settings-menu');
+
+        settingsIcon.addEventListener('click', (e) => {
+        e.preventDefault();
+        const isVisible = settingsMenu.style.display === 'block';
+        settingsMenu.style.display = isVisible ? 'none' : 'block';
+        });
+
+        document.addEventListener('click', (e) => {
+        if (!e.target.closest('.settings-dropdown')) {
+        settingsMenu.style.display = 'none';
+         }
+        });
+    </script>
+    </body>
+    </html>

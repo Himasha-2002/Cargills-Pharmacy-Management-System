@@ -92,14 +92,14 @@ h2 {
 }
 
 .text-input {
-             background: #e6e6e6;
-             height: 40px;
-             display: flex;
-             width: 90%;
-             align-items: center;
-             border-radius: 10px;
-             padding: 0 15px;
-             margin: 5px 0;
+    background: #e6e6e6;
+    height: 40px;
+    display: flex;
+    width: 90%;
+    align-items: center;
+    border-radius: 10px;
+    padding: 0 15px;
+    margin: 5px 0;
 }
 
 .text-input input {
@@ -152,23 +152,23 @@ h2 {
 
 <body>
     <div class="container">
-        <div class="card"><br>
-            <div class="profile-img">
-                <img src="profile-icon.jpg" alt="Profile Icon">
-            </div>
-            <h2>Cargills Pharmacy Login</h2><br>
-            <form method="post" action="login.php">
-                <div class="text-input">
-                    <i class="ri-user-fill"></i>
-                    <input type="username" name="username" placeholder="Enter Username" required>
-                </div><br>
-                <div class="text-input">
-                    <i class="ri-lock-fill"></i>
-                    <input type="password" name="password" placeholder="Enter Password" required>
-                </div><br><br>
-                <button type="submit" class="btn login-btn">Login</button><br><br>
-                <a href="verify.php" class="forgot-link">Forgot Password?</a>
-            </form>
+     <div class="card"><br>
+        <div class="profile-img">
+            <img src="profile-icon.jpg" alt="Profile Icon">
+        </div>
+        <h2>Cargills Pharmacy Login</h2><br>
+        <form method="post" action="login.php">
+            <div class="text-input">
+                <i class="ri-user-fill"></i>
+                <input type="username" name="username" placeholder="Enter Username" required>
+             </div><br>
+            <div class="text-input">
+                <i class="ri-lock-fill"></i>
+                <input type="password" name="password" placeholder="Enter Password" required>
+            </div><br><br>
+            <button type="submit" class="btn login-btn">Login</button><br><br>
+            <a href="verify.php" class="forgot-link">Forgot Password?</a>
+        </form>
         </div>
     </div>
 </body>

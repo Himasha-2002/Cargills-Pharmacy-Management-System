@@ -101,13 +101,14 @@
             cursor: pointer;
         }
 
-      
+        /*main contenr*/
         .main-content {
             flex: 1;
             background-color: #d5d4d4;
             padding: 20px;
+  
         }
-
+        /*header*/
         .header {
             border-bottom: 5px solid #800000;
             margin-bottom: 50px;
@@ -133,17 +134,12 @@
 
         .header p {
             color: #b51616;
+            padding-left: 60px;
             margin: 0;
             font-size: 20px;
             font-family: 'Times New Roman', Times, serif;
             font-style: bold;
             margin-top:15px;
-        }
-        
-        .header .settings {
-            font-size: 24px;
-            color: #800000;
-            cursor: pointer;
         }
         /*settings icon*/
        .settings-dropdown {
@@ -163,7 +159,7 @@
         display: none;
         position: absolute;
         right: 0;
-        top: 40px;
+        top: 35px;
         background-color: #ad5062;
         border: 1px solid #800000;
         border-radius: 5px;
@@ -197,9 +193,11 @@
             background-color: #d3d3d3;
             padding: 20px;
             border-radius: 5px;
+            border-bottom: 5px solid #800000;
         }
 
         .form-container form {
+            margin-bottom: 30px;
             display: flex;
             flex-direction: column;
         }
@@ -227,6 +225,7 @@
             border-radius: 5px;
             cursor: pointer;
             align-self: center;
+            font-weight: bold;
         }
 
         .form-container button:hover {
@@ -291,11 +290,13 @@
 </div>
 
     <div class="main-content">
+        <!--header-->
         <div class="header">          
             <div>
                 <h1><i class="fa-solid fa-users"></i>Add Customer</h1>
                 <p>Add New Customer</p>
-            </div>       
+            </div>   
+            <!--Setting icon-->    
             <div class="settings-dropdown">
                 <a href="#"><i class="fas fa-cog settings-icon"></i></a>
                 <div class="settings-menu">
@@ -305,6 +306,7 @@
                 </div>
             </div>
         </div>
+         <!--form-container-->
         <div class="form-container">
             <form>
                 <label for="customer-name">Customer Name:</label>

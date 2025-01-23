@@ -10,31 +10,33 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 20px;
+    gap: 20px;
     font-family:Inria Serif ;
   }
   
   .report-section{
-    background-color: #d3b2b2;
+    background-color:  #ffffff;
     padding: 20px;
     border-radius: 8px;
-    width: 48%;
+    flex: 1;
     font-family:Inria Serif ;
 
 
   }
 
   .print-section {
+    width: 300px;
     background-color: #eee5e5;
     padding: 20px;
-    border-radius: 8px;
-    width: 48%;
-    font-family:Inria Serif ;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   }
   
   h2 {
     text-align: center;
     margin-bottom: 20px;
     font-family:Inria Serif ;
+    color: #a30000;
   }
   
   table {
@@ -45,13 +47,13 @@ body {
   
   table th, table td {
     border: 1px solid #000;
-    text-align: left;
+    text-align: center;
     padding: 8px;
     font-family:Inria Serif ;
   }
   
   table th {
-    background-color: #e0d4d4;
+    background-color:#eee5e5;
     font-family:Inria Serif ;
   }
   
@@ -102,13 +104,13 @@ body {
   }
   
   .save-btn {
-    background-color: #4CAF50;
+    background-color: #8b0000;
     color: white;
     font-family:Inria Serif ;
   }
   
   .cancel-btn {
-    background-color: #f44336;
+    background-color: #ea1404;
     color: white;
     font-family:Inria Serif ;
   }

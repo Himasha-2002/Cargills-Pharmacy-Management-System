@@ -1,13 +1,36 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
+  
+    <title>Cargills Pharmacy Login</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <title>Forget Password</title>
-    
 </head>
+
+<?php
+include 'db_connect.php';
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $query = "SELECT * FROM users WHERE email='$email'";
+    $result = $conn->query($query);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        if (password_verify($password, $row['password'])) {
+            echo "Login successful!";
+        } else {
+            echo "Invalid password!";
+        }
+    } else {
+        echo "User not found!";
+    }
+}
+?>
+
+
 <style>
-body {
+    
+    body {
     background: url('back11.jpg') no-repeat center center/cover;
     height: 100vh;
     display: flex;
@@ -31,7 +54,7 @@ body {
     text-align: center;
     color: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border: 2px solid #0f0e0e; 
+    border: 2px solid #0f0e0e; /* Blue border for the card */
 }
 
 .profile-img img {
@@ -44,7 +67,7 @@ body {
 
 h2 {
     margin: 10px 0;
-    font-size: 32px;
+    font-size: 30px;
     font-family:'Times New Roman', Times, serif;
 }
 
@@ -93,7 +116,7 @@ h2 {
     background-color: #ffe6e6;
 }
 
-.login-link {
+.forgot-link {
     display: block;
     margin-top: 15px;
     font-size: 14px;
@@ -101,35 +124,32 @@ h2 {
     text-decoration: none;
 }
 
-.login-link:hover {
+.forgot-link:hover {
     text-decoration: underline;
 }
 
-
 </style>
 <body>
+   
     <div class="container">
         <div class="card"><br>
             <div class="profile-img">
-                <img src="profile-icon.jpg"Profile Icon">
+                <img src="profile-icon.jpg" alt="Profile Icon">
             </div>
-            <h2>Forget Password</h2><br>
-            <form>
+            <h2>Cargills Pharmacy Login</h2><br>
+            <form method="post" action="log.php">
+              
                 <div class="text-input">
                     <i class="ri-user-fill"></i>
-                    <input type="text" placeholder="Username">
-                    
-                </div><br>
-                <div class="text-input">
-                    <i class="ri-lock-fill"></i>
-                    <input type="password" placeholder="Enter New Password">
-                </div><br>
-                <div class="text-input">
-                    <i class="ri-lock-fill"></i>
-                    <input type="password" placeholder="Confirm Password">
-                </div><br><br><br>
-                <button type="submit" class="btn reset-btn">Reset Password</button><br><br>
-                <a href="log.html" class="login-link">Login Here</a>
+                    <input type="text" name="username" placeholder="Username">
+                    </div><br>
+
+                    <div class="text-input">
+                        <i class="ri-lock-fill"></i>
+                        <input type="password" name="password" placeholder="Enter Password">
+                    </div><br><br>
+                <button type="submit" class="btn login-btn">Login</button><br><br>
+                <a href="verify.php" class="forgot-link">Forgot Password</a>
             </form>
         </div>
     </div>

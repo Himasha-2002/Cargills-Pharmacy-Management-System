@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  
-    <title>Cargills Pharmacy Login</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-</head>
-<style>
-    
-    body {
+ 
+    <title>Verify</title>
+
+
+    <style>
+   body {
     background: url('back11.jpg') no-repeat center center/cover;
     height: 100vh;
     display: flex;
@@ -15,6 +15,7 @@
     justify-content: center;
     margin: 0;
     padding: 0;
+    
 }
 
 .container {
@@ -31,7 +32,7 @@
     text-align: center;
     color: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border: 2px solid #0f0e0e; /* Blue border for the card */
+    border: 2px solid #0f0e0e; 
 }
 
 .profile-img img {
@@ -44,9 +45,18 @@
 
 h2 {
     margin: 10px 0;
-    font-size: 30px;
+    font-size: 24px;
     font-family:'Times New Roman', Times, serif;
+    font-size: 30px;
 }
+
+p {
+    font-size: 19px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 
 .text-input {
              background: #e6e6e6;
@@ -93,7 +103,7 @@ h2 {
     background-color: #ffe6e6;
 }
 
-.forgot-link {
+.login-link {
     display: block;
     margin-top: 15px;
     font-size: 14px;
@@ -101,33 +111,44 @@ h2 {
     text-decoration: none;
 }
 
-.forgot-link:hover {
+.login-link:hover {
     text-decoration: underline;
 }
 
-</style>
-<body>
-   
-    <div class="container">
-        <div class="card"><br>
-            <div class="profile-img">
-                <img src="profile-icon.jpg" alt="Profile Icon">
-            </div>
-            <h2>Cargills Pharmacy Login</h2><br>
-            <form>
-                <div class="text-input">
-                    <i class="ri-user-fill"></i>
-                    <input type="text" placeholder="Username">
-                    </div><br>
 
-                    <div class="text-input">
-                        <i class="ri-lock-fill"></i>
-                        <input type="password" placeholder="Enter Password">
-                    </div><br><br>
-                <button type="submit" class="btn login-btn">Login</button><br><br>
-                <a href="verify.html" class="forgot-link">Forgot Password</a>
-            </form>
+    </style>
+</head>
+<body>
+
+  
+  
+    <body>
+        <div class="container">
+            <div class="card">
+                <div class="profile-img">
+                    <img src="profile-icon.jpg" alt="Profile Icon">
+                </div>
+                <h2>Forget Password</h2>
+                <p>Enter email and contact number below to reset username and password</p>
+
+                <form method="post" action="new.php">
+    <div class="text-input">
+        <i class="ri-mail-fill"></i>
+        <input type="email" name="email" placeholder="Enter email" required>
+    </div><br>
+
+    <div class="text-input">
+        <i class="ri-phone-fill"></i>
+        <input type="number" name="number" placeholder="Enter contact number" required>
+    </div><br><br>
+
+    <button type="submit" class="btn verify-btn">Verify</button><br><br>
+    <a href="login.php" class="login-link">Login here</a>
+</form>
+
+            </div>
         </div>
-    </div>
+    
+    
 </body>
 </html>

@@ -18,16 +18,22 @@
             display: flex;
             height: 100vh;
             background-color: #f0f0f0;
+            overflow-x: hidden;
         }
     /* Sidebar */
        .sidebar {
-            width: 15%;
+            width: 250px;
             background-color: #7c0d0d;
             color: white;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px 0;
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            transition: all 0.3s ease;
         }
 
         .sidebar .profile {
@@ -43,7 +49,6 @@
         }
 
         .sidebar .profile h3 {
-            font-size: 18px;
             font-weight: bold;
             font-size: 25px;
             font-family: 'Times New Roman';
@@ -102,8 +107,10 @@
     /*main contenr*/ 
         .main-content {
             flex: 1;
-            background-color: #d5d4d4;
+            background-color: #d4d4d5;
             padding: 20px;
+            margin-left: 250px;
+            transition: margin-left 0.3s ease;
         }
     /*header*/
         .header {
@@ -138,10 +145,11 @@
             font-style: bold;
             margin-top:15px;
         }
-    /*settings icon*/
+    /*settings dropdown*/
         .settings-dropdown {
-        position: relative;
-        display: inline-block;
+            position: relative;
+            display: inline-block;
+            margin-left: auto;
         }
 
         .settings-icon {
@@ -156,7 +164,7 @@
         display: none;
         position: absolute;
         right: 0;
-        top: 40px;
+        top: 35px;
         background-color: #ad5062;
         border: 1px solid #800000;
         border-radius: 5px;
@@ -182,6 +190,7 @@
         background-color: #4e0312;
 
         }
+        /*form-container*/
         .form-container {
             margin-top: 30px;
             background-color: #d3d3d3;
@@ -226,6 +235,70 @@
             background-color: #A52A2A;
         }
 
+     /* Sidebar Toggle for Mobile */
+        .sidebar-toggle {
+            display: none;
+        }
+    /* Responsive Design*/
+        @media (max-width: 768px) {
+            .sidebar {
+                left: -250px; 
+            }
+        /* Show sidebar */
+            .sidebar.active {
+                left: 0; 
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .sidebar-toggle {
+                display: block;
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                background-color: #7c0d0d;
+                color: white;
+                padding: 10px;
+                border: none;
+                cursor: pointer;
+                font-size: 20px;
+                z-index: 2;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .header h1 {
+                font-size: 25px;
+            }
+
+            .header p {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 22px;
+            }
+
+            .header p {
+                font-size: 14px;
+            }
+
+            .form-container input {
+                font-size: 12px;
+            }
+
+            .form-container button {
+                width: 100%;
+            }
+            
+        }
 
     </style>
 </head>
@@ -256,8 +329,8 @@
             <a href="#"><i class="fa-solid fa-capsules"></i> Medicine<span class="toggle"><</span></a>
             <div class="dropdown-content">
                 <a href="..\Medicine\Add_Medicine.html">Add Medicine</a>
-                <a href="..\Medicine\Manage_medicine_Stock.html">Manage Medicine</a>
-                <a href="..\Medicine\Manage_medicine.html">Manage Medicine Stock</a>
+                <a href="..\Medicine\Manage_Medicine.html">Manage Medicine</a>
+                <a href="..\Medicine\Manage_Medicine_Stock.html">Manage Medicine Stock</a>
             </div>
         </div>
         <div class="dropdown">
@@ -278,19 +351,22 @@
             <a href="#"><i class="fas fa-chart-bar"></i> Report<span class="toggle"><</span></a>
             <div class="dropdown-content">
                 <a href="..\dashboard\Sales report.html">Sales Report</a>
-                <a href="..\New\Purchase Report.html">Purchase Report</a>
+                <a href="..\New\purchase Report.html">Purchase Report</a>
             </div>
         </div>    
     </div>
 </div>
+    <!--sidebar Toggle button for smaller screen-->
+    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+    
     <div class="main-content">
-<!--header-->
-        <div class="header">
-           
+    <!--header-->
+        <div class="header">  
             <div>
                 <h1><i class="fa-solid fa-users"></i>Add Supplier</h1>
                 <p>Add New Supplier</p>
             </div>
+            <!--Setting icon-->
             <div class="settings-dropdown">
                 <a href="#"><i class="fas fa-cog settings-icon"></i></a>
                 <div class="settings-menu">
@@ -301,6 +377,7 @@
             </div>
         
         </div>
+        <!--form-container-->
         <div class="form-container">
             <form>
                 <label for="supplier-name">Supplier Name:</label>
@@ -318,6 +395,7 @@
                 <button type="submit">ADD</button>
             </form>
         </div>
+
         <script>
             // JavaScript to handle dropdown functionality
             const dropdowns = document.querySelectorAll('.dropdown');
@@ -332,6 +410,7 @@
                     toggle.textContent = isVisible ? '<' : 'v'; // Toggle symbol
                 });
             });
+            // JavaScript to handle settings dropdown functionality
             const settingsIcon = document.querySelector('.settings-icon');
             const settingsMenu = document.querySelector('.settings-menu');
 
@@ -346,6 +425,11 @@
             settingsMenu.style.display = 'none';
              }
             });
+              // JavaScript to handle sidebar toggle on smaller screens
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        }
+            
         </script>
     </body>
     </html>

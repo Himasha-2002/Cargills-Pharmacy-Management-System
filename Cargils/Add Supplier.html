@@ -145,7 +145,7 @@
             font-style: bold;
             margin-top:15px;
         }
-    /*settings dropdown*/
+    /*settings icon*/
         .settings-dropdown {
             position: relative;
             display: inline-block;
@@ -432,11 +432,12 @@
             function toggleSidebar() {
             document.querySelector('.sidebar').classList.toggle('active');
         }
+        //email validation
          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert('Please enter a valid email address.');
-        isValid = false;
-    }
+        if (!emailRegex.test(email)) {
+            alert('Please enter a valid email address.');
+            isValid = false;
+        }
             
         </script>
     </body>

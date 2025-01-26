@@ -18,17 +18,23 @@
             display: flex;
             height: 100vh;
             background-color: #f0f0f0;
+            overflow-x: hidden;
         }
 
         /* Sidebar */
         .sidebar {
-            width: 15%;
+            width: 250px;
             background-color: #7c0d0d;
             color: white;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 10px 0;
+            padding: 20px 0;
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            transition: all 0.3s ease;
         }
 
         .sidebar .profile {
@@ -44,7 +50,6 @@
         }
 
         .sidebar .profile h3 {
-            font-size: 18px;
             font-weight: bold;
             font-size: 25px;
             font-family:'Times New Roman';
@@ -101,13 +106,15 @@
             cursor: pointer;
         }
 
-      
+       /*main contenr*/
         .main-content {
             flex: 1;
             background-color: #d5d4d4;
             padding: 20px;
+            margin-left: 250px;
+            transition: margin-left 0.3s ease;
         }
-
+    /*header*/
         .header {
             border-bottom: 5px solid #800000;
             margin-bottom: 50px;
@@ -130,12 +137,6 @@
             font-family: 'Times New Roman', Times, serif;
             font-style: bold;
         }
-        .settings-btn {
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-}
 
 .overview {
   display: grid;

@@ -141,6 +141,7 @@
 
         .header p {
             color: #b51616;
+            padding-left: 60px;
             margin: 0;
             font-size: 20px;
             font-family: 'Times New Roman', Times, serif;
@@ -192,7 +193,7 @@
         .settings-menu a:hover {
         background-color: #4e0312;
         }
-
+    /*search*/
         .search-section {
             background-color: #f0f0f0;
             padding: 20px;
@@ -276,47 +277,7 @@
             font-family: Aptos Display;
             text-align: left;
         }
-        .settings-dropdown {
-        position: relative;
-        display: inline-block;
-        }
 
-        .settings-icon {
-        right: 50px;
-        font-size: 30px;
-        color: #040404;
-        cursor: pointer;
-        text-decoration: none;
-        }
-
-        .settings-menu {
-        display: none;
-        position: absolute;
-        right: 0;
-        top: 40px;
-        background-color: #ad5062;
-        border: 1px solid #800000;
-        border-radius: 5px;
-        width: 150px;
-        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-        }
-
-        .settings-menu a {
-            display: flex;
-            align-items: center;
-            padding: 10px 15px;
-            text-decoration: none;
-            color: white;
-            font-size: 14px;
-            font-family: Arial, sans-serif;
-            transition: background-color 0.3s;
-            gap: 10px; 
-        }
-
-        .settings-menu a:hover {
-        background-color: #4e0312;
-        }
 
      /* Sidebar Toggle for Mobile */
      .sidebar-toggle {
@@ -461,6 +422,7 @@
             </div>
            
         </div>
+        <!--search section-->
         <div class="search-section">
             <label for="voucher"><b>Search:</b></label>
             <input type="text" id="voucher" placeholder="Invoice Number">
@@ -531,7 +493,8 @@
         <div class="actions">
             <button class="btn btn-primary" type="submit">PRINT</button>
        </div>
-
+    </div>
+    
      
        <script>
         // JavaScript to handle dropdown functionality
@@ -563,7 +526,7 @@
             settingsMenu.style.display = 'none';
              }
             });
-                   // JavaScript to handle sidebar toggle on smaller screens
+             // JavaScript to handle sidebar toggle on smaller screens
         function toggleSidebar() {
             document.querySelector('.sidebar').classList.toggle('active');
         }

@@ -173,6 +173,14 @@
   grid-template-columns: repeat(4, 2fr);
   gap: 10px;
 }
+.action-link {
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Makes the link behave like a block element */
+}
+
+.action-link button {
+  width: 100%; /* Ensure buttons span their full parent width */
+}
 
 .action-btn {
   background-color: #61383d;
@@ -333,13 +341,20 @@
         </div>
         <hr class="styled-hr"></br></br>
           <section class="actions">
-            <button class="action-btn"><i class="fa-solid fa-file-invoice"></i><br><br><b>Create New Invoice</b></button>
-            <button class="action-btn"><i class="fa-solid fa-users"></i><br><br></b><b>Add New Customer</b></button>
-            <button class="action-btn"><i class="fa-solid fa-capsules"></i><br><br><b>Add New Medicine</b></button>
-            <button class="action-btn"><i class="fas fa-truck"></i><br><br><b>Add New Supplier</b></button>
-            <button class="action-btn"><i class="fa-solid fa-cart-shopping"></i><br><br><b>Add New Purchase</b></button>
-            <button class="action-btn"><i class="fas fa-chart-bar"></i><br><br><b>Sales Report</b></button>
-            <button class="action-btn"><i class="fas fa-chart-bar"></i><br><br><b>Purchase Report</b></button>
+            <a href="..\Cargils\New Invoice.html" class="action-link">
+            <button class="action-btn"><i class="fa-solid fa-file-invoice"></i><br><br><b>Create New Invoice</b></button></a>
+            <a href="..\New\Add Customer.html" class="action-link">
+            <button class="action-btn"><i class="fa-solid fa-users"></i><br><br></b><b>Add New Customer</b></button></a>
+            <a href="..\Medicine\Add_Medicine.html" class="action-link">
+            <button class="action-btn"><i class="fa-solid fa-capsules"></i><br><br><b>Add New Medicine</b></button></a>
+            <a href="..\Cargils\Add Supplier.html" class="action-link">
+            <button class="action-btn"><i class="fas fa-truck"></i><br><br><b>Add New Supplier</b></button></a>
+            <a href="..\New\Add Purchase.html" class="action-link">
+            <button class="action-btn"><i class="fa-solid fa-cart-shopping"></i><br><br><b>Add New Purchase</b></button></a>
+            <a href="..\dashboard\Sales report.html" class="action-link">
+            <button class="action-btn"><i class="fas fa-chart-bar"></i><br><br><b>Sales Report</b></button></a>
+            <a href="..\New\Purchase Report.html" class="action-link">
+            <button class="action-btn"><i class="fas fa-chart-bar"></i><br><br><b>Purchase Report</b></button></a>
         </section>
         </main>
       </div>

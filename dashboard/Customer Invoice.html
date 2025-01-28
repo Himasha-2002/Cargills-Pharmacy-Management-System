@@ -115,10 +115,10 @@
             margin-left: 250px;
             transition: margin-left 0.3s ease;
         }
-
-        .invoice-header {
+    /*header*/
+        .header {
             border-bottom: 5px solid #800202;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
             display: flex;
             justify-content: space-between;
             align-items: Right;
@@ -148,7 +148,7 @@
             font-style: bold;
             margin-top:15px;
         }
- /*settings icon*/
+    /*settings icon*/
         .settings-dropdown {
         position: relative;
         display: inline-block;
@@ -192,10 +192,34 @@
         .settings-menu a:hover {
         background-color: #4e0312;
         }
+        /*Search section*/
+        .search-section {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
 
+        .search-section label {
+            margin-right: 10px;
+        }
 
+        .search-section input {
+            padding: 8px;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 10px;
+        }
         .table {
-            width: 50%;
+            width: 70%;
             border-collapse: collapse;
         }
 
@@ -221,30 +245,14 @@
         .totals {
             text-align: right;
         }
-        .search-section {
-            background-color: #f0f0f0;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
 
-        .search-section label {
-            margin-right: 10px;
-        }
 
-        .search-section input {
-            padding: 8px;
-            margin-right: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .print-options {
-    width: 25%;
+    .print-options {
+    width: 30%;
     background-color: #d4b2b2;
     padding: 20px;
-    margin-right: 40px ;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .print-options h3 {
@@ -258,27 +266,52 @@
 .print-options input,
 .print-options select {
     width: 100%;
+
+}
+form {
+    display: flex;
+    flex-direction: column;
+    font-family:Inria Serif ;
+  }
+label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-family:Inria Serif ;
+  }
+  
+  input[type="text"] {
     padding: 5px;
     margin-bottom: 10px;
-}
-
-.options label {
-    display: block;
-   
-}
+    border: 1px solid #000;
+    border-radius: 4px;
+    font-family:Inria Serif ;
+  }
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    font-family:Inria Serif ;
+  }
+  
+  .checkbox-group input {
+    margin-right: 8px;
+    font-family:Inria Serif ;
+  }
 
 .buttons {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+    
 }
 
 .save-btn,
 .cancel-btn {
     padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
+    
 }
 
 .save-btn {
@@ -352,25 +385,28 @@
     <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
 
     <div class="main-content">
+        <!--header-->
         <div class="header">           
             <div>
                 <h1><i class="fa-solid fa-cart-shopping"></i>Customer Invoice</h1>
                 <p>Invoice Number - 10003,Invoice Date - 2020-05-06</p>
-            </div> </br></br>
+            </div>
+            <div class="settings-dropdown">
+                <a href="#"><i class="fas fa-cog settings-icon"></i></a>
+                <div class="settings-menu">
+                    <a href="..\Naduni\Profile.html"><i class="fas fa-user"></i>My Profile</a>
+                    <a href="..\Cargils\Password.html"><i class="fas fa-key"></i>Change Password</a>
+                    <a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                </div>
+            </div>
+        </div>
+
             <div class="search-section">
                 
                 <input type="text" id="voucher" placeholder="Customer Details">
                 <input type="text" placeholder="Shop Details">
             </div>
-              
-            <a href="#"><i class="fas fa-cog settings-icon"></i></a>
-            <div class="settings-menu">
-                <a href="#"><i class="fas fa-user"></i>My Profile</a>
-                <a href="#"><i class="fas fa-key"></i>Change Password</a>
-                <a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
-            </div>
-        </div>
-    <div class="tabelandprint">
+    <div class="container">
         <table class="table">
             <thead>
                 <tr>
@@ -411,19 +447,31 @@
         </table>
         <div class="print-options">
             <h3>Print</h3>
+            <form>
             <p>Destination: <select><option>Save as PDF</option></select></p>
             <p>Pages: <input type="text" placeholder="All"></p>
             <p>Pages Per Sheet: <input type="text"></p>
             <p>Margins: <select><option>Default</option></select></p>
-            <div class="options">
-                <label><input type="checkbox"> Headers and Footers</label>
-                <label><input type="checkbox"> Background Graphics</label>
-            </div>
+            
+            <div class="checkbox-group">
+                <input type="checkbox" id="headers-footers" name="headers-footers">
+                <label for="headers-footers">Headers and Footers</label>
+              </div>
+              
+              <div class="checkbox-group">
+                <input type="checkbox" id="background-graphics" name="background-graphics">
+                <label for="background-graphics">Background Graphics</label>
+              </div>
             <div class="buttons">
                 <button class="save-btn">Save</button>
                 <button class="cancel-btn">Cancel</button>
             </div>
+        </form>
         </div>
+    </div>
+ 
+    
+        
             <script>
                 // JavaScript to handle dropdown functionality
                 const dropdowns = document.querySelectorAll('.dropdown');
@@ -454,7 +502,7 @@
                 settingsMenu.style.display = 'none';
                  }
                 });
-    // JavaScript to handle sidebar toggle on smaller screens
+        // JavaScript to handle sidebar toggle on smaller screens
             function toggleSidebar() {
             document.querySelector('.sidebar').classList.toggle('active');
             }

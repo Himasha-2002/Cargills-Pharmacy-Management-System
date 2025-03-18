@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2025 at 05:42 AM
+-- Generation Time: Mar 17, 2025 at 03:32 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.12
 
@@ -30,6 +30,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `admin_credentials` (
   `USERNAME` varchar(50) NOT NULL,
   `PASSWORD` varchar(50) NOT NULL,
+  `EMAIL` varchar(20) DEFAULT NULL,
+  `CONTACT_NUMBER` int(10) DEFAULT NULL,
   `IS_LOGGED_IN` varchar(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
 
@@ -37,9 +39,8 @@ CREATE TABLE `admin_credentials` (
 -- Dumping data for table `admin_credentials`
 --
 
-INSERT INTO `admin_credentials` (`USERNAME`, `PASSWORD`, `IS_LOGGED_IN`) VALUES
-('admin', 'admin123', '1'),
-('pharmacist', '12345678', 'false');
+INSERT INTO `admin_credentials` (`USERNAME`, `PASSWORD`, `EMAIL`, `CONTACT_NUMBER`, `IS_LOGGED_IN`) VALUES
+('admintest', '123456789', 'test@gmail.com', 1234567899, 'false');
 
 -- --------------------------------------------------------
 
@@ -61,12 +62,8 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`ID`, `NAME`, `CONTACT_NUMBER`, `ADDRESS`, `DOCTOR_NAME`, `DOCTOR_ADDRESS`) VALUES
-(4, 'Kiran Suthar', '1234567690', 'Andheri East', 'Anshari', 'Andheri East'),
-(6, 'Aditya', '7365687269', 'Virar West', 'Xyz', 'Virar West'),
-(11, 'Shivam Tiwari', '6862369896', 'Dadar West', 'Dr Kapoor', 'Dadar East'),
-(13, 'Varsha Suthar', '7622369694', 'Rani Station', 'Dr Ramesh', 'Rani Station'),
-(14, 'Prakash Bhattarai', '9802851472', 'Pokhara-16, Dhikidada', 'Hari Bahadur', 'Matepani-12'),
-(15, 'Jaime Bean', '2554445698', 'Labore Odit Eu Ea Ha', 'Hop Day', 'Eum Explicabo Quia');
+(1, 'Inez Porter', '6813336669', 'Autem Repellendus D', 'Wallace Little', 'Harum Tempora Nisi M'),
+(2, 'Amity Walker', '2785556669', 'Consequuntur Deserun', 'Nell Lancaster', 'Voluptatem Atque Nob');
 
 -- --------------------------------------------------------
 
@@ -83,14 +80,6 @@ CREATE TABLE `invoices` (
   `TOTAL_DISCOUNT` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
 
---
--- Dumping data for table `invoices`
---
-
-INSERT INTO `invoices` (`INVOICE_ID`, `NET_TOTAL`, `INVOICE_DATE`, `CUSTOMER_ID`, `TOTAL_AMOUNT`, `TOTAL_DISCOUNT`) VALUES
-(1, 30, '2021-10-19', 14, 30, 0),
-(2, 2626, '2021-10-19', 6, 2626, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -104,17 +93,6 @@ CREATE TABLE `medicines` (
   `GENERIC_NAME` varchar(100) NOT NULL,
   `SUPPLIER_NAME` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
-
---
--- Dumping data for table `medicines`
---
-
-INSERT INTO `medicines` (`ID`, `NAME`, `PACKING`, `GENERIC_NAME`, `SUPPLIER_NAME`) VALUES
-(1, 'Nicip Plus', '10tab', 'Paracetamole', 'BDPL PHARMA'),
-(2, 'Crosin', '10tab', 'Hdsgvkvajkcbja', 'Kiran Pharma'),
-(4, 'Dolo 650', '15tab', 'paracetamole', 'BDPL PHARMA'),
-(5, 'Gelusil', '10tab', 'mint fla', 'Desai Pharma'),
-(6, 'Lesley Witt', 'CONSEQUAT ULLAMCO Q', 'Ezra Wiley', 'Sara Lindsey');
 
 -- --------------------------------------------------------
 
@@ -131,16 +109,6 @@ CREATE TABLE `medicines_stock` (
   `MRP` double NOT NULL,
   `RATE` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
-
---
--- Dumping data for table `medicines_stock`
---
-
-INSERT INTO `medicines_stock` (`ID`, `NAME`, `BATCH_ID`, `EXPIRY_DATE`, `QUANTITY`, `MRP`, `RATE`) VALUES
-(1, 'Crosin', 'CROS12', '12/34', 2, 2626, 26),
-(2, 'Gelusil', 'G327', '12/42', 0, 15, 12),
-(3, 'Dolo 650', 'DOLO327', '01/23', 3, 30, 24),
-(4, 'Nicip Plus', 'NI325', '05/22', 3, 32.65, 28);
 
 -- --------------------------------------------------------
 
@@ -170,28 +138,6 @@ CREATE TABLE `suppliers` (
   `CONTACT_NUMBER` varchar(10) NOT NULL,
   `ADDRESS` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
-
---
--- Dumping data for table `suppliers`
---
-
-INSERT INTO `suppliers` (`ID`, `NAME`, `EMAIL`, `CONTACT_NUMBER`, `ADDRESS`) VALUES
-(1, 'Desai Pharmab', 'desai@gmail.com', '9948724242', 'Mahim East'),
-(2, 'BDPL PHARMA', 'bdpl@gmail.com', '8645632963', 'Santacruz West'),
-(9, 'Kiran Pharma', 'kiranpharma@gmail.com', '7638683637', 'Andheri East'),
-(10, 'Rsrnrnrndnn', 'ydj', '3737355538', '3fndfndfndndfnfdndfn'),
-(11, 'Dfnsfndfndf', 'fnsn', '5475734385', 'Ndnss4yrhrhdhrdhrh'),
-(12, 'SS Distributors', 'ssdis@gamil.com', '3867868752', 'Matunga West'),
-(13, 'Avceve', 'ehh', '3466626226', 'Eteh266266262'),
-(14, 'Hrshrhrjher', 'dzgdg', '4636347335', 'Rhrswjrnswjn'),
-(15, 'Hmrxfmgtmt', 'trmtrm gm tr', '6553838835', '38ejtdjtdxetjdt'),
-(20, 'Dtdxtkmtdshrrhhsrjrs', 'trmtrm gm tr', '6553838835', '38ejtdjtdxetjdt'),
-(23, 'Fndn', 'nena ena', '3462462642', 'Ebsbsdbsdndsnsdfns'),
-(24, 'Fndnbrwh', 'nena ena', '3462462642', 'Ebsbsdbsdndsnsdfns'),
-(25, 'Jnentjrtj', 'nena ena', '3462462642', 'Ebsbsdbsdndsnsdfns'),
-(26, 'Jerthjrtjtjr', 'nena ena', '3462462642', 'Ebsbsdbsdndsnsdfns'),
-(28, 'Gahgkakbvkv', 'nena ena', '3462462642', 'Ebsbsdbsdndsnsdfns'),
-(29, 'Hywhwhrhdw', 'nena ena', '3462462642', 'Ebsbsdbsdndsnsdfns');
 
 --
 -- Indexes for dumped tables
@@ -248,25 +194,25 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `invoices`
 --
 ALTER TABLE `invoices`
-  MODIFY `INVOICE_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `INVOICE_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `medicines`
 --
 ALTER TABLE `medicines`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `medicines_stock`
 --
 ALTER TABLE `medicines_stock`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `purchases`
@@ -278,7 +224,7 @@ ALTER TABLE `purchases`
 -- AUTO_INCREMENT for table `suppliers`
 --
 ALTER TABLE `suppliers`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,0 +1,124 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+}
+
+.sales-report {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sales-report h1 {
+  color: #a30000;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: Inria Serif;
+}
+
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.report-table th,
+.report-table td {
+  border: 1px solid #000;
+  text-align: center;
+  padding: 8px;
+}
+
+.report-table th {
+  background-color: #eee5e5;
+}
+
+.report-table tfoot {
+  background-color: #e7ffe7;
+}
+
+.total-label {
+  text-align: right;
+  font-weight: bold;
+  color: #006400;
+}
+
+.total-value {
+  font-weight: bold;
+  color: #006400;
+}
+
+.print-settings {
+  width: 300px;
+  background-color: #eee5e5;
+  padding: 20px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.print-settings h2 {
+  margin-bottom: 20px;
+}
+
+.settings-group {
+  margin-bottom: 15px;
+}
+
+.settings-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.settings-group select,
+.settings-group input[type="checkbox"] {
+  width: 100%;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-family: Inria Serif;
+}
+
+.checkbox-group input {
+  margin-right: 20px;
+  font-family: Inria Serif;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.save-button,
+.cancel-button {
+  padding: 8px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.save-button {
+  background-color: #8b0000;
+  color: #fff;
+}
+
+.cancel-button {
+  background-color: #ea1404;
+  color: #fff;
+}

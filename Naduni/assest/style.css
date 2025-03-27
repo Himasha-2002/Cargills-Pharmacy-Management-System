@@ -1,0 +1,154 @@
+/* General body and container styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #800000;
+    background-image: url(../img/backgroundimg.jpg);
+    background-size: cover; /* Ensure the image covers the entire screen */
+    background-position: center center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+}
+
+.container {
+    text-align: center;
+    color: white;
+}
+
+.welcome {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px #000;
+    font-family: Lemonada;
+}
+
+.pharmacy-box {
+    background-color: rgba(245, 245, 245, 0.9); /* Slightly transparent background */
+    padding: 60px 50px;
+    border-radius: 25px;
+    display: inline-block;
+    position: relative;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px;
+}
+
+.cargills {
+    font-size: 2.5rem;
+    font-style: italic;
+    color: #333;
+    margin: 0;
+    font-family: Lexend;
+}
+
+.pharmacy {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #800000;
+    margin: 20px 0;
+    font-family: Libre Bodoni;
+}
+
+.since {
+    font-size: 2rem;
+    color: #228B22;
+    margin: 0;
+    font-family: Lobster Two;
+}
+
+.pharmacy-icon {
+    width: 60px; /* Set a suitable width */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 15px; /* Adjust the space above the icon */
+}
+
+.auth-buttons {
+    margin-top: 30px; /* Adjust space above buttons */
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Added space between buttons */
+}
+
+/* Login button styling */
+.login-btn {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    margin: 10px;
+    border: none;
+    border-radius: 50px; /* Rounded buttons */
+    cursor: pointer;
+    background-color: #4CAF50; /* Green for login */
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.login-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight hover effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.login-btn:active {
+    transform: translateY(1px); /* Button press effect */
+}
+
+/* Sign Up button styling */
+.signup-btn {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    margin: 10px;
+    border: none;
+    border-radius: 50px; /* Rounded buttons */
+    cursor: pointer;
+    background-color: #008CBA; /* Blue for signup */
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.signup-btn:hover {
+    background-color: #007bb5; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight hover effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.signup-btn:active {
+    transform: translateY(1px); /* Button press effect */
+}
+
+/* Make the layout responsive */
+@media (max-width: 768px) {
+    .pharmacy-box {
+        padding: 40px 30px; /* Adjust padding for smaller screens */
+    }
+
+    .welcome {
+        font-size: 2.5rem; /* Smaller font size for smaller screens */
+    }
+
+    .pharmacy {
+        font-size: 3rem; /* Smaller font size for smaller screens */
+    }
+
+    .cargills {
+        font-size: 1.8rem; /* Adjust font size */
+    }
+
+    .pharmacy-icon {
+        width: 50px; /* Slightly smaller icon */
+    }
+
+    .auth-buttons {
+        flex-direction: column;
+        align-items: center; /* Stack buttons vertically */
+    }
+}
